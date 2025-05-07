@@ -34,6 +34,7 @@
     display: flex;
     gap: 90px;
     list-style-type: none;
+    margin-left: 235px;
   }
 
   .nav-links li {
@@ -81,7 +82,7 @@
     height: 51px;
     width: 140px;
     background-color: #7B1CE0;
-    border: #7B1CE0 2px solid;
+    border: #7B1CE0 4px solid;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -100,12 +101,11 @@
   header h1 {
     font-size: 86px;
     font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 600px;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
+    width: 1100px;
   }
 
-  header h1 span {
+  span {
     background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -113,9 +113,8 @@
 
   header p {
     font-size: 16px;
-    margin-bottom: 40px;
-    margin-right: 1000px;
-    padding-bottom: 40px;
+    margin-bottom: 80px;
+    width: 675px;
   }
 
   header button {
@@ -129,4 +128,86 @@
     cursor: pointer;
     transition: 0.3s;
     font-family: "Jura", sans-serif;
+  }
+
+  header button:hover {
+    background-color: #7B1CE0;
+    color: #ffffff;
+  }
+
+  #coursesSection {
+    padding: 50px 180px;
+  }
+
+  #coursesSection h2 {
+    margin-top: 5px;
+    font-size: 40px;
+  }
+
+  #coursesSection .descriptionCourses {
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 90px;
+    width: 700px;
+  }
+
+  #coursesSection .courseCards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  #coursesSection .courseCards .card {
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(224, 224, 224, 0.48);
+    min-height: 490px;
+    min-width: 490px;
+    max-height: 490px;
+    max-width: 490px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    padding: 40px;
+    transition: 0.3s;
+  }
+
+  #coursesSection .courseCards .card:hover {
+    transform: scale(1.05);
+  }
+
+  #coursesSection .courseCards .card img {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 10px;
+  }
+
+  #coursesSection .courseCards .card h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  #coursesSection .courseCards .card p {
+    width: 285px;
+    font-size: 16px;
+    margin-bottom: 120px;
+  }
+
+  #coursesSection .courseCards .card button {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: #ffffff 2px solid;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 22px;
+  }
+
+  #coursesSection .courseCards .card button:hover {
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);;
+    color: #ffffff;
+    border: 0;
   }
