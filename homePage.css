@@ -34,7 +34,7 @@
     display: flex;
     gap: 90px;
     list-style-type: none;
-    margin-left: 235px;
+    margin-left: 220px;
   }
 
   .nav-links li {
@@ -56,17 +56,17 @@
   .navbarButtons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
   
   .loginButton {
     background-color: transparent;
     color: #ffffff;
-    height: 51px;
-    width: 140px;
+    height: 48px;
+    width: 120px;
     border: #7B1CE0 3px solid;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
     font-family: "Jura", sans-serif;
@@ -79,12 +79,12 @@
 
   .registerButton {
     color: #ffffff;
-    height: 51px;
-    width: 140px;
+    height: 48px;
+    width: 120px;
     background-color: #7B1CE0;
     border: #7B1CE0 3px solid;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
     font-family: "Jura", sans-serif;
@@ -95,7 +95,7 @@
   }
 
   header {
-    padding: 155px 80px;
+    padding: 160px 80px;
   }
 
   header h1 {
