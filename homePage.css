@@ -64,7 +64,7 @@
     color: #ffffff;
     height: 51px;
     width: 140px;
-    border: #7B1CE0 4px solid;
+    border: #7B1CE0 3px solid;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -82,7 +82,7 @@
     height: 51px;
     width: 140px;
     background-color: #7B1CE0;
-    border: #7B1CE0 4px solid;
+    border: #7B1CE0 3px solid;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -122,7 +122,7 @@
     color: #ffffff;
     height: 61px;
     width: 206px;
-    border: #7B1CE0 4px solid;
+    border: #7B1CE0 3px solid;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -204,10 +204,100 @@
     border-radius: 15px;
     color: #ffffff;
     font-size: 22px;
+    transition: 0.3s;
+    cursor: pointer;
   }
 
   #coursesSection .courseCards .card button:hover {
-    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);;
+    background-color: #7B1CE0;
     color: #ffffff;
-    border: 0;
+    border-color: #7B1CE0;
+  }
+
+  #informationsSection{
+    padding: 150px 180px;
+  }
+
+  #informationsSection h2{
+    margin-bottom: 15px;
+    font-size: 40px;
+  }
+
+  #informationsSection button{
+    font-size: 16px;
+    margin-top: 65px;
+    height: 71px;
+    width: 192px;
+    background-color: transparent;
+    color: #ffffff;
+    border: #7B1CE0 3px solid;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  #informationsSection button:hover{
+    background-color: #7B1CE0;
+  }
+
+  #informationsSection img{
+    height: 700px;
+    width: 700px;
+  }
+
+  #informationsSection .whylearnProgrammingClass{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+  }
+
+  #informationsSection .whylearnProgrammingClassText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #informationsSection .methodologyFocusedClass{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+  }
+
+  #informationsSection .methodologyFocusedClassText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  footer {
+    border-top: white 1px solid;
+    margin: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 350px;
+  }
+
+  footer .footerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
   }
