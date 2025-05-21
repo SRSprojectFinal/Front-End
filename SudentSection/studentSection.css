@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #EAEAEA;
+    height: 1200px;
+    font-family: "Jura", sans-serif;
+    
+  }
+  header {
+    height: 100vh;
+    background: url(artistic-blurry-colorful-wallpaper-background.jpg);
+    background-size: cover;
+    background-attachment: fixed
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    color: #d6d6d6;
+  }
+
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+  }
+
+  .fa-user {
+    color: #ffffff;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  header h1 {
+    font-family: "Staatliches", sans-serif;
+    width: 730px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 592px;
+    top: 227px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  header .hashTag {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: 5;
+    letter-spacing: -35px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1)100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 505px;;
+    top: -62px;
+    transform: rotate(11deg);
+    z-index: 1;
+  }
+
+  header .htmlReference {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: lighter;
+    letter-spacing: -41px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 1110px;
+    top: 377px;
+    transform: rotate(-15deg);
+    z-index: 1;
+    width: 330px;
+  }
+
+  .cardStudent {
+    position: absolute;
+    left: 1283px;
+    top: 323px;
+    transform: rotate(-11deg);
+    z-index: 2;
+    height: 215px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, -0.63);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba(224, 224, 224, 0.48);
+  }
+
+    .cardStudent .fa-circle-user {
+        font-size: 42px;
+        color: #EADDFF;
+        border-radius: 50%;
+
+    }
+
+  .cardStudent h3 {
+    font-size: 24px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+  .cardStudent p{
+    margin-top: 7px;
+    text-align: center;
+  }
+
+.cardStudying {
+position: absolute;
+    left: 689px;
+    top: 616px;
+    transform: rotate(41deg);
+    z-index: 2;
+    height: 215px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, -0.63);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba(224, 224, 224, 0.48);
+  }
+
+    .cardStudying .fa-circle-user {
+        font-size: 42px;
+        color: #EADDFF;
+        border-radius: 50%;
+
+    }
+
+  .cardStudying h3 {
+    font-size: 24px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .cardStudying p{
+    text-align: center;
+  }
