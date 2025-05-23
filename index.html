@@ -21,14 +21,14 @@
                 SRS
             </div>
             <ul class="nav-links">
-                <li><a href="#">home</a></li>
-                <li><a href="#">course</a></li>
-                <li><a href="#">about us</a></li>
-                <li><a href="#">informations</a></li>
+                <li><a href="http://127.0.0.1:3000/">home</a></li>
+                <li><a href="#coursesSection">courses</a></li>
+                <li><a href="#informationsSection">informations</a></li>
+                <li><a href="#footer">about us</a></li>
             </ul>
             <div class="navbarButtons">
-                <button class="loginButton">Login</button>
-                <button class="registerButton">Register</button>    
+                <button class="loginButton" onclick="goToLogin()">Login</button>
+                <button class="registerButton" onclick="goToRegister()">Register</button>    
             </div>
         </nav>
         <header>
@@ -72,8 +72,8 @@
                     </div>
                     <div class="card">
                         <img src="skill-icons--vscode-dark.png" alt="Create a study plan">
-                        <h3>Create a study plan</h3>
-                        <p>Create your own study plan</p>
+                        <h3>programming basis</h3>
+                        <p>Learn the basic fundamentals of programming</p>
                         <button><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
@@ -86,14 +86,14 @@
                     <div class="whylearnProgrammingClassText">
                         <h2>Why learn <span>programming</span> Today?</h2>
                         <p>Technology is present in everything: in the apps we use, in the companies we consume, and even in essential everyday services. Learning to code isn’t just about mastering a technical skill — it’s about opening doors to new careers, opportunities, and a more connected future.</p>
-                        <button class="aboutUsButton">About-us</button>
+                        <button class="aboutUsButton" onclick="goToAboutUs()">About-us</button>
                     </div>
                 </div>
                 <div class="methodologyFocusedClass">
                     <div class="methodologyFocusedClassText">
                         <h2>Methodology focused on real <span>results</span>.</h2>
                         <p>Our courses were developed by market experts and designed to help you apply your knowledge from the very first class. With a focus on practice, you develop real projects that simulate the challenges of a real company.</p>
-                        <button class="ViewCoursesButton">View Courses</button>
+                        <button class="ViewCoursesButton" onclick="goToCourses()">View Courses</button>
                     </div>
                     <div class="methodologyFocusedClassImg">
                         <img src="isometric-tecnology-abstract-background (1).png" alt="Methodology focused on results">
@@ -101,7 +101,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <footer id="footer">
             <div class="footerPersonalSocialMedia">
                 <h3><span>SRS</span></h3>
                 <div class="footerIcons">

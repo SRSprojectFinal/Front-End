@@ -9,12 +9,13 @@
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
-    color: #EAEAEA;
+    color: #fff;
+    background-color: #EAEAEA;
     height: 1200px;
     font-family: "Jura", sans-serif;
-    
+    overflow-x: hidden;
   }
+
   header {
     height: 100vh;
     background: url(artistic-blurry-colorful-wallpaper-background.jpg);
@@ -87,18 +88,38 @@
     margin-left: 5px;
   }
 
-  header h1 {
-    font-family: "Staatliches", sans-serif;
+  header .h1StudentHeader {
+  font-family: "Staatliches", sans-serif;
     width: 730px;
     font-size: 240px;
     font-weight: 5;
     line-height: 1.0;
     position: absolute;
-    left: 592px;
+    left: 588px;
     top: 227px;
     text-align: center;
     z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
   }
+
+  header .h1SectionHeader {
+  font-family: "Staatliches", sans-serif;
+    width: 680px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 613px;
+    top: 450px;
+    text-align: center;
+    z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
 
   header .hashTag {
     font-family: "Slackside One", cursive;
@@ -113,6 +134,12 @@
     top: -62px;
     transform: rotate(11deg);
     z-index: 1;
+  }
+
+  span {
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   header .htmlReference {
@@ -150,13 +177,13 @@
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 25px;
     border: 1px solid rgba(224, 224, 224, 0.48);
+  
   }
 
     .cardStudent .fa-circle-user {
         font-size: 42px;
         color: #EADDFF;
         border-radius: 50%;
-
     }
 
   .cardStudent h3 {
@@ -211,4 +238,225 @@ position: absolute;
 
   .cardStudying p{
     text-align: center;
+  }
+
+  #studentSection {
+    color: black;
+    margin: 90px 180px 100px 180px;
+  }
+
+  #studentSection .TitleSRS{
+    font-size: 16px;
+  }
+
+  #studentSection h2{
+    font-size: 40px;
+    margin-top: 5px;
+  }
+
+  #studentSection .descriptionCourses{
+    font-size: 16px;
+    margin-top: 25px;
+    width: 720px;
+  }
+
+  .studentCards {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+
+  }
+
+  .studentCards .card {
+    width: 339px;
+    height: 351px;
+    background-color: #e4e4e4;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    gap: 15px;
+    box-shadow:  9px 9px 18px #c4c4c4, -9px -9px 18px #f7f7f7;
+    transition: 0.3s;
+  }
+
+  .studentCards .card:hover {
+    scale: 1.05;
+  }
+
+  .studentCards .card img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .studentCards .card h3{
+    font-size: 32px;
+  }
+
+  .studentCards .card p{
+    font-size: 16px;
+  }
+
+  .studentCards .card button{
+    width: 61px;
+    height: 58px;
+    background-color: transparent;
+    border: #000000 1px solid;
+    border-radius: 15px;
+    color: #000000;
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+  }
+
+  .studentCards .card button:hover{
+    scale: 1.05;
+  }
+
+  .studentCards .card .needMoreMargin{
+    margin-top: 35px;
+  }
+
+  footer {
+    background-color: #ffffff;
+    height: 450px;
+  }
+
+  .flexTofooterContent {
+         display: flex;
+    justify-content: center;
+    gap: 350px;
+  }
+
+  .divBorderFooter {
+  position: relative;
+  padding-top: 5px;
+}
+
+
+  footer .footerContent {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+.suportToBorder {
+  margin-bottom: 30px;
+}
+
+ .divBorderFooter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .typingEffect {
+    animation: typing 2s steps(7, end), cursor .4s step-end infinite alternate;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  .slideToRight {
+    animation: slideToRight 2s ease-out forwards;
+  }
+
+  .slideToLeft {
+    animation: slideToLeft 2s ease-out forwards;
+  }
+
+  .slideToBottom1 {
+    animation: slideToBottom1 2s ease-out forwards;
+  }
+
+  .slideToBottom2 {
+    animation: slideToBottom2 2s ease-out forwards;
+  }
+
+  @keyframes slideToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToBottom1 {
+  0% {
+    opacity: 0;
+    transform: translateY(-300px) rotate(33deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-11deg);
+  }
+}
+
+@keyframes slideToBottom2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px) rotate(-53deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(41deg);
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color:#ffffff;
+  }
+}
+
+  @keyframes typing {
+    from {
+      width: 0;
+    } 
   }
