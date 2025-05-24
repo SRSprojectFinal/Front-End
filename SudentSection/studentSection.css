@@ -456,7 +456,13 @@ position: absolute;
 }
 
   @keyframes typing {
-    from {
+    0% {
       width: 0;
+    }
+    50% {
+      width: 340px;
     } 
+    100% {
+      width: 680px;
+    }
   }
