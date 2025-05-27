@@ -47,33 +47,44 @@
         <table>
             <thead>
                 <tr>
-                    <tbody>
                     <th>Product</th>
                     <th>Unit value</th>
                     <th>Final value</th>
                     <th></th>
-                    <tbody>
-                        <tr iProduct="${i}">
-                            <td class="cartProduct">
-                                <img src="skill-icons--python-dark.png">
-                                <div class="cartProductContent">
-                                    <p class="pProductName">Back-End Course</p>
-                                    <p class="pDescription">Languages: Java, Python, C#, PHP, NodeJs...</p>
-                                </div>
-                            </td>
-                            <td class="cartUnitvalue">$15.99</td>
-                            <td class="cartfinalValue"><strong>$15.99</strong></td>
-                            <td class="cartTrash"><i class="fa-solid fa-trash"></i></td>
-                        </tr>
-                    </tbody>
                 </tr>
             </thead>
+                <tbody>
+                    <tr iProduct="${i}">
+                        <td class="cartProduct">
+                            <img src="skill-icons--python-dark.png">
+                            <div class="cartProductContent">
+                                <p class="pProductName">Back-End Course</p>
+                                <p class="pDescription">Languages: Java, Python, C#, PHP, NodeJs...</p>
+                            </div>
+                        </td>
+                        <td class="cartUnitvalue">$15.99</td>
+                        <td class="cartfinalValue"><strong>$15.99</strong></td>
+                        <td class="cartTrash"><i class="fa-solid fa-trash"></i></td>
+                    </tr>
+                    <tr iProduct="${i}">
+                        <td class="cartProduct">
+                            <img src="skill-icons--react-dark.png">
+                            <div class="cartProductContent">
+                                <p class="pProductName">Front-End Course</p>
+                                <p class="pDescription">Languages: React, React Native, HTML, CSS, JavaScript...</p>
+                            </div>
+                        </td>
+                        <td class="cartUnitvalue">$13.99</td>
+                        <td class="cartfinalValue"><strong>$13.99</strong></td>
+                        <td class="cartTrash"><i class="fa-solid fa-trash"></i></td>
+                    </tr>
+                </tbody>           
         </table>
         <section id="cartSummary">
             <div class="cartCoupon">
                 <form>
                     <label class="labelCoupon">Coupon</label><br>
-                    <input type="text" class="inputCoupon"/>
+                    <input type="text" class="inputCoupon" placeholder="Coupon123"/>
                     <input type="button" class="buttonCoupon" value="Apply"/>
                 </form>
                 <p>Delivery Policy</p>

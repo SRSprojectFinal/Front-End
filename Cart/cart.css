@@ -11,7 +11,6 @@
   body {
     color: #000000;
     background-color: #D9D9D9;
-
     font-family: "Jura", sans-serif;
     overflow-x: hidden;
   }
@@ -169,16 +168,6 @@ td {
   padding-bottom: 70px;
 }
 
-.fa-minus:before {
-  margin-right: 15px;
-  font-size: 14px;
-}
-
-.fa-plus:before {
-  margin-left: 15px;
-  font-size: 14px;
-}
-
 .fa-trash:before {
   margin-left: -15px;
   transition: 0.3s;
@@ -188,7 +177,6 @@ td {
   color: #7B1CE0;
   cursor: pointer;
 }
-
 
 .cartProduct {
   display: flex;
@@ -205,17 +193,14 @@ td {
   font-size: 13px;
 }
 
-.pArtStyle {
-  margin-top: 1px;
-  font-size: 13px;
-}
+
 
 #cartSummary {
   display: flex;
   justify-content: space-between;
   gap: 60px;
   width: 100%;
-  margin-bottom: 100px;
+  margin-top: 50px;
 }
 
 input[type="text"],
@@ -235,6 +220,10 @@ input[type="number"] {
 input[type="text"]:focus,
 input[type="number"]:focus {
   outline: 0;
+}
+
+input::placeholder {
+  font-family: "Jura", sans-serif;
 }
 
 .cartDeliveryTime {
