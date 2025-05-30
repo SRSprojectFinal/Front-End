@@ -245,9 +245,12 @@ position: absolute;
     margin: 90px 180px 100px 180px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 90px;
   }
 
-  .cardFrontEnd{
+  .card{
     height: 490px;
     width: 1456px;
     background-color: #e7e7e7;
@@ -260,26 +263,27 @@ position: absolute;
     padding-top: 16px;
   }
 
-  .cardFrontEnd .cardInformations{
+  .card .cardInformations{
     width: 300px;
+    margin-top: 12px
   }
 
-  .cardFrontEnd .cardInformations h2{
+  .card .cardInformations h2{
     margin-top: 7px;
     font-size: 40px;
   }
 
-  .cardFrontEnd .cardInformations h3{
+  .card .cardInformations h3{
     font-size: 24px;
     margin-top: 20px;
   }
 
-  .cardFrontEnd .cardInformations p{
+  .card .cardInformations p{
     font-size: 16px;
     margin-top: 10px;
   }
 
-  .cardFrontEnd .cardInformations .buttonCard{
+  .card .cardInformations .buttonCard{
     color: #7B1CE0;
     font-size: 48px;
     border: 3px solid #7B1CE0;
@@ -296,39 +300,39 @@ position: absolute;
     scale: 1.05;
   }
 
-  .cardFrontEnd .cardInformations img {
+  .card .cardInformations img {
     width: 76px;
     height: 76px;
 
   }
 
-  .cardFrontEnd .cardImg img {
+  .card .cardImg img {
     width: 685px;
     height: 457px;
     border-radius: 16px;
   }
 
-  .cardFrontEnd .cardProgress{
+  .card .cardProgress{
     width: 300px;
     
   }
 
-    .cardFrontEnd .cardProgress h2{
+    .card .cardProgress h2{
     margin-top: 37px;
     font-size: 48px;
   }
 
-  .cardFrontEnd .cardProgress h3{
+  .card .cardProgress h3{
     font-size: 24px;
     margin-top: 20px;
   }
 
-  .cardFrontEnd .cardProgress p{
+  .card .cardProgress p{
     font-size: 16px;
     margin-top: 5px;
   }
 
-  .frontProgressBar{
+  .progressBar{
     margin-top: 40px;
     margin-left: 63px;
     background: conic-gradient(#7B1CE0 3.6deg, #d8d8d8 0deg);
@@ -341,7 +345,7 @@ position: absolute;
     align-items: center;
   }
 
-   .frontProgressBar::before{
+   .progressBar::before{
     content: "";
     position: absolute;
     width: 170px;
@@ -350,7 +354,7 @@ position: absolute;
     border-radius: 50%;
    }
 
-   .frontValue {
+   .value {
     position: relative;
     font-weight: bolder;
     font-size: 48px;
@@ -360,12 +364,12 @@ position: absolute;
     color: #7B1CE0;
    }
 
-   .frontCompletedText{
+   .completedText{
     position: relative;
     font-weight: bolder;
     font-size: 16px;
     font-family: "Jura", sans-serif;
-    color: #7B1CE0;
+    color: #d8d8d8;
    }
 
   footer {

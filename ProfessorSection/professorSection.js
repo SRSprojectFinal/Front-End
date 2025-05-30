@@ -1,6 +1,45 @@
+let animationTriggered = false;
+
+let ministeringFrontEnd = true;
+let ministeringBackEnd = true;
+let ministeringMobile = false;
+let ministeringDataScience = true;
+let ministeringUIandUX = false;
+let ministeringProgrammingBasis = false;
+
+const upperCardMinistering = document.querySelector(".cardMinistering");
+
+const cardFrontEnd = document.querySelector(".cardFrontEnd");
 const frontProgressBar = document.querySelector(".frontProgressBar");
 const frontValue = document.querySelector(".frontValue");
 const frontCompletedText = document.querySelector(".frontCompletedText");
+
+const cardBackEnd = document.querySelector(".cardBackEnd");
+const backProgressBar = document.querySelector(".backProgressBar");
+const backValue = document.querySelector(".backValue");
+const backCompletedText = document.querySelector(".backCompletedText");
+
+const cardMobile = document.querySelector(".cardMobile");
+const mobileProgressBar = document.querySelector(".mobileProgressBar");
+const mobileValue = document.querySelector(".mobileValue");
+const mobileCompletedText = document.querySelector(".mobileCompletedText");
+
+const cardDataScience = document.querySelector(".cardDataScience");
+const dataScienceProgressBar = document.querySelector(".dataScienceProgressBar");
+const dataScienceValue = document.querySelector(".dataScienceValue");
+const dataScienceCompletedText = document.querySelector(".dataScienceCompletedText");
+
+const cardUIandUX = document.querySelector(".cardUiandUx");
+const uiandUxProgressBar = document.querySelector(".uiandUxProgressBar");
+const uiandUxValue = document.querySelector(".uiandUxValue");
+const uiandUxCompletedText = document.querySelector(".uiandUxCompletedText");
+
+const cardProgrammingBasis = document.querySelector(".cardProgrammingBasis");
+const programmingBasisProgressBar = document.querySelector(".programmingBasisProgressBar");
+const programmingBasisValue = document.querySelector(".programmingBasisValue");
+const programmingBasisCompletedText = document.querySelector(".programmingBasisCompletedText");
+
+
 
 function animateProgress(value, progressBar, completedText, finalValue) {
     let initialProgress = 0;
@@ -72,4 +111,36 @@ setTimeout(() => {
 }
 
 timerAnimations();
-animateProgress(frontValue, frontProgressBar, frontCompletedText, 75);
+
+window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const sectionPosition = document.querySelector("#ProfessorSection").offsetTop + 500;
+
+    if (scrollPosition >= sectionPosition && !animationTriggered) {
+        animationTriggered = true;
+
+        animateProgress(frontValue, frontProgressBar, frontCompletedText, 75);
+        animateProgress(backValue, backProgressBar, backCompletedText, 100);
+        animateProgress(mobileValue, mobileProgressBar, mobileCompletedText, 0);
+        animateProgress(dataScienceValue, dataScienceProgressBar, dataScienceCompletedText, 0);
+        animateProgress(uiandUxValue, uiandUxProgressBar, uiandUxCompletedText, 0);
+        animateProgress(programmingBasisValue, programmingBasisProgressBar, programmingBasisCompletedText, 0);
+    }
+});
+
+const cardsProfessor = [
+    { condition: ministeringFrontEnd, card: cardFrontEnd , name: "Front End" },
+    { condition: ministeringBackEnd, card: cardBackEnd , name: "Back End" },
+    { condition: ministeringMobile, card: cardMobile , name: "Mobile" },
+    { condition: ministeringDataScience, card: cardDataScience , name: "Data Science" },
+    { condition: ministeringUIandUX, card: cardUIandUX , name: "UI & UX" },
+    { condition: ministeringProgrammingBasis, card: cardProgrammingBasis , name: "Programming Basis" }
+];
+
+cardsProfessor.forEach(({ condition, card, name }) => {
+    if (!condition){
+        card.style.display = "none";
+    } else {
+        upperCardMinistering.innerHTML += `<p>${name}</p>`;
+    }
+});
