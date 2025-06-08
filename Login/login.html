@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="goToRegisterContainer">
+                <h1>Welcome back</h1>
+                <p>Don't have an account?</p>
+                <button class="registerButton" onclick="goToRegister()">Register</button>
+            </div>
+            <div class="formContainer">
+                <form>
+                    <h1>Log <span>in</span></h1>
+                    <label for="username" id="labelUserName">Name</label>
+                    <input type="text" id="userName" name="username" placeholder="Put your full name" required>
+                    <label for="email" id="labelEmail">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Put your e-mail" required>
+                    <label for="password" id="labelPassword">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Put your password" required>
+                </form>
+                <input class="loginButton" type="button" onclick="login()" value="Login"></input>
+                <div id="msgError">Some of the information is incorrect!</div>
+            </div>
+        </div>
+        <script src="login.js"></script>
+    </body>
+</html>

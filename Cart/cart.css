@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #000000;
+    background-color: #E9E9E9;
+    font-family: "Jura", sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    color: #000000;
+  }
+
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+    color: #7B1CE0;
+  }
+
+  .fa-user {
+    color: #000000;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  header {
+  margin-top: 60px;
+  margin-left: 360px;
+  margin-right: 360px;
+  display: flex;
+  justify-content: center;
+}
+
+  .cartStyle {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  gap: 9px;
+  background-color: #cacaca;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.divNumber1 {
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  color: #cacaca;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.classNumber1 {
+  margin-top: 0px;
+  margin-left: -1px;
+}
+
+.cartStyleContent {
+  margin-top: 19px;
+}
+
+.paymentStyle {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  gap: 9px;
+  background-color: #7e7e7e9f;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.divPayment2 {
+  height: 20px;
+  width: 20px;
+  background-color: rgba(0, 0, 0, 0.377);
+  color: #a1a1a1;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.classPayment2 {
+  margin-top: 0px;
+}
+.paymentStyleContent {
+  margin-top: 19px;
+  color: rgba(0, 0, 0, 0.37);
+}
+
+main {
+  margin-left: 360px;
+  margin-right: 360px;
+  display: block;
+}
+
+table {
+  margin-top: 30px;
+  width: 100%;
+}
+
+th {
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+td {
+  padding-bottom: 70px;
+}
+
+.fa-trash:before {
+  margin-left: -15px;
+  transition: 0.3s;
+}
+
+.fa-trash:hover {
+  color: #7B1CE0;
+  cursor: pointer;
+}
+
+.cartProduct {
+  display: flex;
+  gap: 15px;
+}
+
+.cartProduct img {
+  height: 60px;
+  width: 60px;
+}
+
+.pDescription {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+
+
+#cartSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+input[type="text"],
+input[type="number"] {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: 0;
+}
+
+input::placeholder {
+  font-family: "Jura", sans-serif;
+}
+
+.cartDeliveryTime {
+  width: 280px;
+}
+
+.cartCoupon {
+  width: 280px;
+}
+
+.divSummaryContent {
+  display: flex;
+  gap: 50px;
+  margin-top: 28px;
+}
+
+.divSummaryPrice {
+  text-align: right;
+}
+
+.divSummaryInformations p {
+  margin-bottom: 15px;
+}
+
+.cartTotalValue {
+  margin-bottom: 15px;
+}
+
+.cartTotalPurchase {
+  margin-bottom: 15px;
+}
+
+.cartCalculate {
+  margin-bottom: 15px;
+}
+
+.labelDeliveryTime {
+  font-size: 18px;
+}
+
+.labelCoupon {
+  font-size: 18px;
+}
+
+.cartSummaryTitle {
+  font-size: 18px;
+}
+
+#buttonContinueToPayment {
+  width: 100%;
+  font-family: "Jura", sans-serif;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  background-color:#7B1CE0;
+  border: 1px solid #7B1CE0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+#buttonContinueToPayment:hover {
+  color: #7B1CE0;
+  background-color: transparent;
+}
+
+.buttonCoupon {
+  width: 82px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: rgb(0, 0, 0);
+  font-family: "Jura", sans-serif;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 15px;
+  position: absolute;
+  margin-top: 26px;
+  margin-left: -88px;
+  cursor: pointer;
+}

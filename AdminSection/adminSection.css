@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #fff;
+    background-color: #EAEAEA;
+    height: 1200px;
+    font-family: "Jura", sans-serif;
+    overflow-x: hidden;
+  }
+
+  header {
+    height: 100vh;
+    background: url(AdminSectionPictures/artistic-blurry-colorful-wallpaper-background.jpg);
+    background-size: cover;
+    background-attachment: fixed
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: transparent 2px solid;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    border-bottom: #7B1CE0 2px solid;
+  }
+
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+  }
+
+  .fa-user {
+    color: #ffffff;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  header .h1AdminHeader {
+font-family: "Staatliches", sans-serif;
+    width: 510px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 695px;
+    top: 227px;
+    text-align: center;
+    z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  header .h1SectionHeader {
+  font-family: "Staatliches", sans-serif;
+    width: 680px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 613px;
+    top: 450px;
+    text-align: center;
+    z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+
+  header .hashTag {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: 5;
+    letter-spacing: -35px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1)100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 575px;;
+    top: -62px;
+    transform: rotate(11deg);
+    z-index: 1;
+  }
+
+  span {
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header .htmlReference {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: lighter;
+    letter-spacing: -41px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 1110px;
+    top: 377px;
+    transform: rotate(-15deg);
+    z-index: 1;
+    width: 330px;
+  }
+
+  #adminSection {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divBorder{
+    margin-bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    width: 1450px;
+    margin-top: 90px;
+  }
+
+  #adminSection .TitleSRS{
+    font-size: 16px;
+  }
+
+  #adminSection h2{
+    font-size: 40px;
+    margin-top: 5px;
+  }
+
+  #adminSection .descriptionCourses{
+    font-size: 16px;
+    margin-top: 25px;
+    width: 720px;
+  }
+
+  .adminCards {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .adminCards .card {
+    width: 339px;
+    height: 351px;
+    background-color: #e4e4e4;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    gap: 15px;
+    box-shadow:  9px 9px 18px #c4c4c4, -9px -9px 18px #f7f7f7;
+    transition: 0.3s;
+  }
+
+  .adminCards .card:hover {
+    scale: 1.05;
+  }
+
+  .adminCards .card img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .adminCards .card h3{
+    font-size: 32px;
+  }
+
+  .adminCards .card p{
+    font-size: 16px;
+  }
+
+  .adminCards .card button{
+    width: 61px;
+    height: 58px;
+    background-color: transparent;
+    border: #000000 1px solid;
+    border-radius: 15px;
+    color: #000000;
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+  }
+
+  .adminCards .card button:hover{
+    scale: 1.05;
+  }
+
+  .adminCards .card .needMoreMargin{
+    margin-top: 35px;
+  }
+
+  footer {
+    background-color: #ffffff;
+    height: 450px;
+  }
+
+  .flexTofooterContent {
+         display: flex;
+    justify-content: center;
+    gap: 350px;
+  }
+
+  .divBorderFooter {
+  position: relative;
+  padding-top: 5px;
+}
+
+
+  footer .footerContent {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+.suportToBorder {
+  margin-bottom: 30px;
+}
+
+ .divBorderFooter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .typingEffect {
+    animation: typing 2s steps(7, end), cursor .4s step-end infinite alternate;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  .slideToRight {
+    animation: slideToRight 2s ease-out forwards;
+  }
+
+  .slideToLeft {
+    animation: slideToLeft 2s ease-out forwards;
+  }
+
+  .slideToBottom1 {
+    animation: slideToBottom1 2s ease-out forwards;
+  }
+
+  .slideToBottom2 {
+    animation: slideToBottom2 2s ease-out forwards;
+  }
+
+  @keyframes slideToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToBottom1 {
+  0% {
+    opacity: 0;
+    transform: translateY(-300px) rotate(33deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-11deg);
+  }
+}
+
+@keyframes slideToBottom2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px) rotate(-53deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(41deg);
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color:#ffffff;
+  }
+}
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 340px;
+    } 
+    100% {
+      width: 510px;
+    }
+  }

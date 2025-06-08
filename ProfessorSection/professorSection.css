@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #fff;
+    background-color: #EAEAEA;
+    height: 1200px;
+    font-family: "Jura", sans-serif;
+    overflow-x: hidden;
+  }
+
+  header {
+    height: 100vh;
+    background: url(ProfessorSectionPictures/artistic-blurry-colorful-wallpaper-background.jpg);
+    background-size: cover;
+    background-attachment: fixed
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: transparent 2px solid;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    border-bottom: #7B1CE0 2px solid;
+  }
+
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+  }
+
+  .fa-user {
+    color: #ffffff;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  header .h1ProfessorHeader {
+  font-family: "Staatliches", sans-serif;
+    width: 975px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 465px;
+    top: 227px;
+    text-align: center;
+    z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  header .h1SectionHeader {
+  font-family: "Staatliches", sans-serif;
+    width: 680px;
+    font-size: 240px;
+    font-weight: 5;
+    line-height: 1.0;
+    position: absolute;
+    left: 613px;
+    top: 450px;
+    text-align: center;
+    z-index: 2;
+    border-right: 8px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+
+  header .hashTag {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: 5;
+    letter-spacing: -35px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1)100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 505px;;
+    top: -62px;
+    transform: rotate(11deg);
+    z-index: 1;
+  }
+
+  span {
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header .htmlReference {
+    font-family: "Slackside One", cursive;
+    font-size: 363px;
+    font-weight: lighter;
+    letter-spacing: -41px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 50%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: 1110px;
+    top: 377px;
+    transform: rotate(-15deg);
+    z-index: 1;
+    width: 330px;
+  }
+
+  .cardProfessor {
+    position: absolute;
+    left: 1283px;
+    top: 323px;
+    transform: rotate(-11deg);
+    z-index: 2;
+    height: 215px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, -0.63);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba(224, 224, 224, 0.48);
+  
+  }
+
+    .cardProfessor .fa-circle-user {
+        font-size: 42px;
+        color: #EADDFF;
+        border-radius: 50%;
+    }
+
+  .cardProfessor h3 {
+    font-size: 24px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+  .cardProfessor p{
+    margin-top: 7px;
+    text-align: center;
+  }
+
+.cardMinistering {
+position: absolute;
+    left: 689px;
+    top: 616px;
+    transform: rotate(41deg);
+    z-index: 2;
+    height: 215px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, -0.63);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba(224, 224, 224, 0.48);
+  }
+
+    .cardMinistering .fa-circle-user {
+        font-size: 42px;
+        color: #EADDFF;
+        border-radius: 50%;
+
+    }
+
+    .professorSectionInformations {
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+    }
+
+  .cardMinistering h3 {
+    font-size: 24px;
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .cardMinistering p{
+    text-align: center;
+  }
+
+  #ProfessorSection {
+    color: black;
+    margin: 90px 180px 100px 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 90px;
+  }
+
+  .card{
+    height: 490px;
+    width: 1456px;
+    background-color: #e7e7e7;
+    box-shadow:  9px 9px 18px #c4c4c4, -9px -9px 28px #ffffff;
+    border-radius: 25px;
+    display: flex;
+    justify-content:space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 16px;
+  }
+
+  .card .cardInformations{
+    width: 300px;
+    margin-top: 12px
+  }
+
+  .card .cardInformations h2{
+    margin-top: 7px;
+    font-size: 40px;
+  }
+
+  .card .cardInformations h3{
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .card .cardInformations p{
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .card .cardInformations .buttonCard{
+    color: #7B1CE0;
+    font-size: 48px;
+    border: 3px solid #7B1CE0;
+    height: 55px;
+    width: 58px;
+    border-radius: 18px;
+    padding-bottom: 53px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 25px;
+  }
+
+  .buttonCard:hover {
+    scale: 1.05;
+  }
+
+  .card .cardInformations img {
+    width: 76px;
+    height: 76px;
+
+  }
+
+  .card .cardImg img {
+    width: 685px;
+    height: 457px;
+    border-radius: 16px;
+  }
+
+  .card .cardProgress{
+    width: 300px;
+    
+  }
+
+    .card .cardProgress h2{
+    margin-top: 37px;
+    font-size: 48px;
+  }
+
+  .card .cardProgress h3{
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .card .cardProgress p{
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .progressBar{
+    margin-top: 40px;
+    margin-left: 63px;
+    background: conic-gradient(#7B1CE0 3.6deg, #d8d8d8 0deg);
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+   .progressBar::before{
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background-color: #e7e7e7;
+    border-radius: 50%;
+   }
+
+   .value {
+    position: relative;
+    font-weight: bolder;
+    font-size: 48px;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    font-family: "Jura", sans-serif;
+    color: #7B1CE0;
+   }
+
+   .completedText{
+    position: relative;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Jura", sans-serif;
+    color: #d8d8d8;
+   }
+
+  footer {
+    background-color: #ffffff;
+    height: 450px;
+  }
+
+  .flexTofooterContent {
+         display: flex;
+    justify-content: center;
+    gap: 350px;
+  }
+
+  .divBorderFooter {
+  position: relative;
+  padding-top: 5px;
+}
+
+
+  footer .footerContent {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+.suportToBorder {
+  margin-bottom: 30px;
+}
+
+ .divBorderFooter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .typingEffect {
+    animation: typing 2s steps(7, end), cursor .4s step-end infinite alternate;
+  }
+
+  .typingEffect2 {
+    animation: typing2 2s steps(9, end), cursor .4s step-end infinite alternate;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  .slideToRight {
+    animation: slideToRight 2s ease-out forwards;
+  }
+
+  .slideToLeft {
+    animation: slideToLeft 2s ease-out forwards;
+  }
+
+  .slideToBottom1 {
+    animation: slideToBottom1 2s ease-out forwards;
+  }
+
+  .slideToBottom2 {
+    animation: slideToBottom2 2s ease-out forwards;
+  }
+
+  @keyframes slideToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToBottom1 {
+  0% {
+    opacity: 0;
+    transform: translateY(-300px) rotate(33deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-11deg);
+  }
+}
+
+@keyframes slideToBottom2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px) rotate(-53deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(41deg);
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color:#ffffff;
+  }
+}
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 340px;
+    } 
+    100% {
+      width: 680px;
+    }
+  }
+
+  @keyframes typing2 {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 487px;
+    } 
+    100% {
+      width: 975px;
+    }
+  }
