@@ -30,6 +30,31 @@ function logout() {
 
 
 
+function addToCart(button) {
+  const productsInfos = button.parentElement;
+  const ProductName = productsInfos.querySelector("h3").textContent;
+
+  let ProductToCart = {
+    ProductNameCart: ProductName,
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+  const verificationCart = cart.some(
+    (item) =>
+      item.ProductNameCart === ProductToCart.ProductNameCart
+  );
+
+  if (verificationCart) {
+    alert("This product is already in the cart!");
+  } else {
+    cart.push(ProductToCart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+}
+
+
+
 function goToLogin(){
     window.location.href = "http://127.0.0.1:3000/Login/login.html";
 }

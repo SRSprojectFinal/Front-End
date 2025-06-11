@@ -31,12 +31,16 @@ function login() {
     password: "",
   };
 
+  let loggedUser = {
+    userName: "",
+    email: "",
+  };
+
   if (
     userName.value == "admin" &&
     email.value == "admin@admin.com" &&
     password.value == "admin1234"
   ) {
-    window.location.href = "http://127.0.0.1:3000/AdminSection/adminSection.html";
 
     let token = Math.random().toString(16).substring(2);
     localStorage.setItem("token", token);
@@ -47,7 +51,14 @@ function login() {
       password: "admin1234",
     };
 
-    localStorage.setItem("loggedUser", JSON.stringify(userValid));
+    loggedUser = {
+      userName: "admin",
+      email: "admin@admin.com"
+    };
+
+    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
+    return window.location.href = "http://127.0.0.1:3000/AdminSection/adminSection.html";
   }
 
   
@@ -57,13 +68,18 @@ function login() {
   userList.forEach((item) => {
       if (
         userName.value == item.regName &&
-        email.value == item.regEmail &&
+        email.value == item.regUserEmail &&
         password.value == item.regPassword
       ) {
         userValid = {
           userName: item.regName,
-          email: item.regEmail,
+          email: item.regUserEmail,
           password: item.regPassword,
+        };
+
+        loggedUser = {
+          userName: item.regName,
+          email: item.regUserEmail,
         };
       }
     });
@@ -90,7 +106,7 @@ function login() {
         let token = Math.random().toString(16).substring(2);
         localStorage.setItem("token", token);
 
-        localStorage.setItem("loggedUser", JSON.stringify(userValid));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
       } else {
         shakeElement();
         userName.setAttribute("style", "border: 1px solid red");

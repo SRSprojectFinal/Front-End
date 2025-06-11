@@ -103,15 +103,24 @@ function register() {
   ) {
     let userList = JSON.parse(localStorage.getItem("userList") || "[]");
 
+    let nameParts = nameInput.value.trim().split(" ");
+    let firstName = nameParts[0];
+    let lastName = nameParts[nameParts.length - 1];
+
+    let regUserEmail = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@student.srs.edu`;
+
     userList.push({
       regName: nameInput.value,
       regEmail: emailInput.value,
+      regUserEmail: regUserEmail,
       regPassword: passwordInput.value,
     });
 
     localStorage.setItem("userList", JSON.stringify(userList));
 
     msgError.setAttribute("style", "display: none");
+
+    alert(`Email sent to ${emailInput.value} containing your new system access email! (Your new email is ${regUserEmail})`);
 
     window.location.href = "http://127.0.0.1:3000/Login/login.html";
   } else {

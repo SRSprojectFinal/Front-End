@@ -165,7 +165,7 @@ th {
 }
 
 td {
-  padding-bottom: 70px;
+  padding-bottom: 40px;
 }
 
 .fa-trash:before {
@@ -193,14 +193,13 @@ td {
   font-size: 13px;
 }
 
-
-
 #cartSummary {
   display: flex;
   justify-content: space-between;
   gap: 60px;
   width: 100%;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 input[type="text"],
@@ -283,6 +282,7 @@ input::placeholder {
   border-radius: 10px;
   font-size: 16px;
   margin-top: 15px;
+  cursor: pointer;
   transition: 0.3s;
 }
 
