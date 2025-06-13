@@ -1,3 +1,22 @@
+let account = document.querySelector(".account");
+let cardStudentName = document.querySelector(".cardStudentName");
+
+
+let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+let loggedName = loggedUser.userName;
+const firstNameLoggedUser = loggedName.split(" ")[0];
+
+account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
+cardStudentName.innerHTML = firstNameLoggedUser;
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("loggedUser");
+  localStorage.removeItem("cart");
+  window.location.href = "http://127.0.0.1:3000";
+}
+
 
 
 function timerAnimations() {
@@ -35,3 +54,17 @@ setTimeout(() => {
 }
 
 timerAnimations();
+
+
+
+function goToStudentNotes() {
+    window.location.href = "http://127.0.0.1:3000/StudentSection/StudentNotes/studentNotes.html";
+}
+
+function goToStudentSchedule() {
+    window.location.href = "http://127.0.0.1:3000/StudentSection/StudentSchedule/studentSchedule.html";
+}
+
+function goToStudentHistory() {
+    window.location.href = "http://127.0.0.1:3000/StudentSection/StudentHistory/studentHistory.html";
+}

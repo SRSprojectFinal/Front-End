@@ -138,9 +138,7 @@ font-family: "Staatliches", sans-serif;
   }
 
   span {
-    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7B1CE0;
   }
 
   header .htmlReference {
@@ -261,7 +259,7 @@ font-family: "Staatliches", sans-serif;
   .flexTofooterContent {
          display: flex;
     justify-content: center;
-    gap: 350px;
+    gap: 250px;
   }
 
   .divBorderFooter {
@@ -290,7 +288,7 @@ font-family: "Staatliches", sans-serif;
   left: 0;
   height: 2px;
   width: 100%;
-  background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
   footer .footerPersonalSocialMedia {
@@ -304,7 +302,7 @@ font-family: "Staatliches", sans-serif;
     display: flex;
     gap: 15px;
     font-size: 24px;
-    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    background-color: #7B1CE0;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

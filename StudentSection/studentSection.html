@@ -29,9 +29,8 @@
                     <li><a href="#footer">about us</a></li>
                 </ul>
                 <div class="navbarButtons">
-                    <p> | </p>
-                    <p> hello Juan <i class="fa-solid fa-user"></i></p>
-                    <button class="logoutButton">Logout</button>    
+                    <p class="account"></p>
+                    <button onclick="logout()" class="logoutButton">Logout</button>    
                 </div>
             </nav>
             <h1 class="h1StudentHeader typingEffect">Student</h1>
@@ -40,7 +39,7 @@
             <h2 class="htmlReference invisible">&lt;/&gt;</h2>
             <div class="cardStudent invisible">
                 <i class="fa-solid fa-circle-user"></i>
-                <h3>Juan</h3>
+                <h3 class="cardStudentName"></h3>
                 <p>I'm studying ads to become a good IT professional.</p>
             </div>
             <div class="cardStudying invisible">
@@ -61,25 +60,19 @@
                             <img src="StudentSectionPictures/skill-icons--react-dark.png" alt="Student Schedule">
                             <h3>Student Schedule</h3>
                             <p>Here you can access the schedules of registered courses.</p>
-                            <button><i class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="goToStudentSchedule()"><i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                         <div class="card">
                             <img src="StudentSectionPictures/skill-icons--react-dark.png" alt="Student Notes">
                             <h3>Student Notes</h3>
                             <p>Here you can access your grades for your respective courses.</p>
-                            <button><i class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                        <div class="card">
-                            <img src="StudentSectionPictures/skill-icons--react-dark.png" alt="Student Situation">
-                            <h3>Student Situation</h3>
-                            <p>Here you can monitor your academic status.</p>
-                            <button class="needMoreMargin"><i class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="goToStudentNotes()"><i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                         <div class="card">
                             <img src="StudentSectionPictures/skill-icons--react-dark.png" alt="Student History">
                             <h3>Student History</h3>
                             <p>Here you can follow your academic record.</p>
-                            <button class="needMoreMargin"><i class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="goToStudentHistory()" class="needMoreMargin"><i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -98,34 +91,34 @@
                     </div>
                 </div>
                 <div class="footerContent">
-                    <p><span>Use cases</span></p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                </div>
-                <div class="footerContent">
-                    <p><span>Explore</span></p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
+                    <p><span>Company</span></p>
+                    <p>About Us</p>
+                    <p>Terms of Service</p>
+                    <p>Privacy Policy</p>
+                    <p>Careers</p>
+                    <p>Contact</p>
+                    <p>Press</p>
+                    <p>Investor Relations</p>
                 </div>
                 <div class="footerContent">
                     <p><span>Resources</span></p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
+                    <p>Help Center</p>
+                    <p>Technical Support</p>
+                    <p>FAQs</p>
+                    <p>Tutorials</p>
+                    <p>Documentation</p>
+                    <p>System Status</p>
+                    <p>Accessibility</p>
+                </div>
+                <div class="footerContent">
+                    <p><span>Apps</span></p>
+                    <p>Download App</p>
+                    <p>Google Play</p>
+                    <p>App Store</p>
+                    <p>Web Version</p>
+                    <p>Public API</p>
+                    <p>Developer Tools</p>
+                    <p>Integration Guides</p>
                 </div>
             </div>
         </footer>

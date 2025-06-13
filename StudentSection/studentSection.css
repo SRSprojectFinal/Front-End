@@ -138,9 +138,7 @@
   }
 
   span {
-    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7B1CE0;
   }
 
   header .htmlReference {
@@ -252,7 +250,7 @@ position: absolute;
     margin-bottom: 90px;
     display: flex;
     flex-direction: column;
-    width: 1450px;
+    width: 1075px;
     margin-top: 90px;
   }
 
@@ -277,7 +275,6 @@ position: absolute;
     justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
-
   }
 
   .studentCards .card {
@@ -341,10 +338,14 @@ position: absolute;
     height: 450px;
   }
 
+  .suportToBorder {
+    color: #ffffff;
+  }
+
   .flexTofooterContent {
-         display: flex;
+    display: flex;
     justify-content: center;
-    gap: 350px;
+    gap: 250px;
   }
 
   .divBorderFooter {
@@ -373,7 +374,7 @@ position: absolute;
   left: 0;
   height: 2px;
   width: 100%;
-  background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
   footer .footerPersonalSocialMedia {
@@ -387,7 +388,7 @@ position: absolute;
     display: flex;
     gap: 15px;
     font-size: 24px;
-    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    background-color: #7B1CE0;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

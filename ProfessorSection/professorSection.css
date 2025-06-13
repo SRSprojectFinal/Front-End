@@ -138,9 +138,7 @@
   }
 
   span {
-    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7B1CE0;
   }
 
   header .htmlReference {
@@ -388,7 +386,7 @@ position: absolute;
   .flexTofooterContent {
          display: flex;
     justify-content: center;
-    gap: 350px;
+    gap: 250px;
   }
 
   .divBorderFooter {
@@ -431,9 +429,7 @@ position: absolute;
     display: flex;
     gap: 15px;
     font-size: 24px;
-    background: linear-gradient(180deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #7B1CE0;
   }
 
   .typingEffect {

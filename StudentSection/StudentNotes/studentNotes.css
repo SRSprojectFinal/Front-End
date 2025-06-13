@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #EAEAEA;
+    font-family: "Jura", sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    border-bottom: transparent 2px solid;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    border-bottom: #7B1CE0 2px solid;
+  }
+  
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+    color: #7B1CE0;
+  }
+
+  .fa-user {
+    color: #000000;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  span {
+    color: #7B1CE0;
+  }
+
+  main {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #notesSection {
+    width: 1500px; 
+  }
+
+  h1 {
+    font-size: 54px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .contestbutton {
+    color: #ffffff;
+    height: 50px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+  
+
+  .notesInformationP {
+    margin-top: 14px;
+    width: 700px;
+    margin-bottom: 100px;
+  }
+
+  .notesTableContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1050px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 45px;
+  }
+
+  th {
+    background-color: #7B1CE0;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    padding: 15px;
+  }
+
+
+
+  .emptyTd {
+    font-size: 28px;
+    font-weight: bold;
+    color: #969696;
+  }
+
+  .grayBackground {
+    background-color: #FEFEFE;
+  }
+
+  .darkGrayBackground {
+    background-color: #F3F3F3;
+  }
+
+
+
+footer {
+    background-color: #ffffff;
+    height: 450px;
+  }
+
+  .suportToBorder {
+    color: #ffffff;
+  }
+
+  .flexTofooterContent {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+  }
+
+  .divBorderFooter {
+  position: relative;
+  padding-top: 5px;
+}
+
+
+  footer .footerContent {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+.suportToBorder {
+  margin-bottom: 30px;
+}
+
+ .divBorderFooter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+   background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+    background-color: #7B1CE0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
