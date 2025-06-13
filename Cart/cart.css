@@ -306,3 +306,54 @@ input::placeholder {
   margin-left: -88px;
   cursor: pointer;
 }
+
+.sectionEmptyCart {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionEmptyCart img {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  height: 350px;
+  width: 350px;
+}
+
+.sectionEmptyCart h1 {
+  font-size: 38px;
+}
+.sectionEmptyCart p {
+  width: 280px;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 60px;
+}
+
+.sectionEmptyCart a {
+  border: 1px #7B1CE0 solid;
+  color: white;
+  background-color: #7B1CE0;
+  height: 50px;
+  padding-top: 13px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-self: auto;
+  font-size: 18px;
+  border-radius: 8px;
+  gap: 4px;
+  text-decoration: none;
+  transition: 0.3s;
+  
+}
+
+.sectionEmptyCart a:hover {
+  color: #7B1CE0;
+  background-color: transparent;
+}
+
+span {
+  color: #7B1CE0;
+}

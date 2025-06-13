@@ -4,9 +4,14 @@ let mobileCourse = document.querySelector(".mobileCourse");
 let dataScienceCourse = document.querySelector(".dataScienceCourse");
 let UiAndUxCourse = document.querySelector(".uiAndUxCourse");
 let programmingBasisCourse = document.querySelector(".programmingBasisCourse");
+let cartfinalValue = document.querySelector(".cartfinalValue");
 
 let cartTotalValue = document.querySelector(".cartTotalValue");
 let cartTotalPurchase = document.querySelector(".cartTotalPurchase");
+
+let sectionEmptyCart = document.querySelector(".sectionEmptyCart");
+let table = document.querySelector("table");
+let cartSummary = document.querySelector("#cartSummary");
 
 function updateCart() {
 
@@ -94,6 +99,44 @@ function updateCart() {
             });
         });
 
+        let totalValuePurchase = 0;
+
+        cart.forEach((item) => {
+            switch (item.ProductNameCart) {
+                case "Front-End":
+                    totalValuePurchase += 219.99;
+                    break;
+                case "Back-End":
+                    totalValuePurchase += 229.99;
+                    break;
+                case "Mobile":
+                    totalValuePurchase += 219.99;
+                    break;
+                case "Data Science":
+                    totalValuePurchase += 229.99;
+                    break;
+                case "UI & UX Desing":
+                    totalValuePurchase += 174.99;
+                    break;
+                case "Programming Basis":
+                    totalValuePurchase += 199.99;
+                    break;
+            }
+        });
+
+        cartTotalValue.innerHTML = `$${totalValuePurchase.toFixed(2)}`;
+        cartTotalPurchase.innerHTML = `$${totalValuePurchase.toFixed(2)}`;
+        
+        if (cart.length == 0 || cart == null) {
+            localStorage.removeItem("cart");
+            table.setAttribute("style", "display: none");
+            cartSummary.setAttribute("style", "display: none");
+            sectionEmptyCart.setAttribute("style", "display: flex");
+        } else {
+            table.setAttribute("style", "display: table");
+            cartSummary.setAttribute("style", "display: flex");
+            sectionEmptyCart.setAttribute("style", "display: none");
+        }
     }
 
 updateCart()
