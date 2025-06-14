@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #EAEAEA;
+    font-family: "Jura", sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 90px;
+    list-style-type: none;
+    margin-left: 220px;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    border-bottom: transparent 2px solid;
+    transition: 0.3s;
+  }
+
+  .nav-links li a:hover {
+    border-bottom: #7B1CE0 2px solid;
+  }
+  
+  .navbarButtons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+
+  .logoutButton {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 3px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+  }
+
+  .logoutButton:hover {
+    background-color: transparent;
+    color: #7B1CE0;
+  }
+
+  .fa-user {
+    color: #000000;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  span {
+    color: #7B1CE0;
+  }
+
+  main {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card{
+    height: 490px;
+    width: 1456px;
+    background-color: #e7e7e7;
+    box-shadow:  9px 9px 18px #c4c4c4, -9px -9px 28px #ffffff;
+    border-radius: 25px;
+    display: flex;
+    justify-content:space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 16px;
+    margin-bottom: 60px;
+  }
+
+  .card .cardInformations{
+    width: 300px;
+    margin-top: 12px
+  }
+
+  .card .cardInformations h2{
+    margin-top: 7px;
+    font-size: 40px;
+  }
+
+  .card .cardInformations h3{
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .card .cardInformations p{
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .card .cardInformations .buttonCard{
+    color: #7B1CE0;
+    font-size: 48px;
+    border: 3px solid #7B1CE0;
+    height: 55px;
+    width: 58px;
+    border-radius: 18px;
+    padding-bottom: 53px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 25px;
+  }
+
+  .buttonCard:hover {
+    scale: 1.05;
+  }
+
+  .card .cardInformations img {
+    width: 76px;
+    height: 76px;
+
+  }
+
+  .card .cardImg img {
+    width: 685px;
+    height: 457px;
+    border-radius: 16px;
+  }
+
+  .card .cardProgress{
+    width: 300px;
+    
+  }
+
+    .card .cardProgress h2{
+    margin-top: 37px;
+    font-size: 48px;
+  }
+
+  .card .cardProgress h3{
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .card .cardProgress p{
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+
+  .approvedSituation {
+    color: #4CAF50;
+  }
+
+  .failedSituation {
+    color: #F44336;
+  }
+
+  .progressBarApproved {
+    background: #4CAF50;
+    margin-top: 40px;
+    margin-left: 63px;
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progressBarFailed {
+    background: #F44336;
+    margin-top: 40px;
+    margin-left: 63px;
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+   .progressBar::before{
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background-color: #e7e7e7;
+    border-radius: 50%;
+   }
+
+   .value {
+    position: relative;
+    font-weight: bolder;
+    font-size: 48px;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    font-family: "Jura", sans-serif;
+   }
+
+   .completedText{
+    position: relative;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Jura", sans-serif;
+   }
+
+  h1 {
+    font-size: 54px;
+  }
+
+  .ScheduleInformationP {
+    margin-top: 14px;
+    width: 700px;
+  }
+
+
+footer {
+    background-color: #ffffff;
+    height: 450px;
+  }
+
+  .suportToBorder {
+    color: #ffffff;
+  }
+
+  .flexTofooterContent {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+  }
+
+  .divBorderFooter {
+  position: relative;
+  padding-top: 5px;
+}
+
+
+  footer .footerContent {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+.suportToBorder {
+  margin-bottom: 30px;
+}
+
+ .divBorderFooter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+   background: radial-gradient(circle, rgba(92, 21, 168, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+  footer .footerPersonalSocialMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 45px;
+  }
+
+  footer .footerIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+    background-color: #7B1CE0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

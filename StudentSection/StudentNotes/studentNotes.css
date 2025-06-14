@@ -127,15 +127,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1050px;
   }
 
   table {
-    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 20px;
-    margin-bottom: 45px;
+    margin-bottom: 95px;
   }
 
   th {
@@ -143,6 +141,7 @@
     color: white;
     text-align: center;
     padding: 20px;
+    width: 300px;
   }
 
   td {
@@ -157,6 +156,14 @@
     font-size: 28px;
     font-weight: bold;
     color: #969696;
+  }
+
+  .positiveNote {
+    color: #4CAF50;
+  }
+
+  .negativeNote {
+    color: #F44336;
   }
 
   .grayBackground {
