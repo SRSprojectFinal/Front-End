@@ -106,9 +106,14 @@
     margin-bottom: 60px;
   }
 
+  .studentHistoryInformations{
+    margin-top: 60px;
+    margin-left: 215px;
+  }
+
   .card .cardInformations{
     width: 300px;
-    margin-top: 12px
+    margin-top: 40px
   }
 
   .card .cardInformations h2{
