@@ -62,8 +62,8 @@
         <main>
             <section id="coursesInformationsSection">
                 <div class="coursesInformationsSectionAling">
-                    <input type="button" class="coursesInformationsButtonLeft" onclick="carroselInformationsLeft()" value="&lt;-"/>
-                <input type="button" class="coursesInformationsButtonRight" onclick="carroselInformationsright()" value="-&gt;"/>
+                    <button class="coursesInformationsButtonLeft" onclick="carroselInformationsLeft()"><img src="ButtonSRS.png" alt="rotate Carrosel"></button> 
+                    <button class="coursesInformationsButtonRight" onclick="carroselInformationsright()"><img src="ButtonSRS.png" alt="rotate Carrosel"></button>
                     <div class="coursesInformationsSectionTitle">
                         <h1><span>About</span> SRS courses</h1>
                         <p>Adobe licenses provide access to creative and productive tools, available on a subscription basis for individuals and businesses.</p>
@@ -95,9 +95,131 @@
                         </div>
                     </div>
                 </div>
+                <div class="pagesInformations">
+                    <div class="page1 selectedPage"></div>
+                    <div class="page2 notSelectedPage"></div>
+                </div>
             </section>
             <section id="coursesSection">
-
+                <div class="coursesSectionAling">
+                    <button class="coursesButtonLeft" onclick="carroselLeft()"><img src="ButtonCourses.png" alt="rotate Carrosel"></button> 
+                    <button class="coursesButtonRight" onclick="carroselright()"><img src="ButtonCourses.png" alt="rotate Carrosel"></button>
+                    <h3>SRS</h3>
+                    <h1 class="coursesSectionTitle">SRS COURSES</h1>
+                    <div class="coursesSectionCards">
+                        <div class="cardCourse cardCourseFrontEnd">
+                            <h4>Front-End Course</h4>
+                            <p class="coursePrice">$ 219.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>2 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>1 GB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Access to a UI library</p>
+                            </div>
+                            <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                        <div class="cardCourse cardCourseBackEnd">
+                            <h4>Back-End Course</h4>
+                            <p class="coursePrice">$ 229.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>3 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>1 GB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>API deployment environment</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Includes sample databases</p>
+                            </div>
+                            <button class="marginFiveAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                        <div class="cardCourse cardCourseMobile">
+                            <h4>Mobile Course</h4>
+                            <p class="coursePrice">$ 219.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>2 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>1 GB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Includes device emulator lab</p>
+                            </div>
+                            <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="pagesCourses">
+                        <div class="page1Courses selectedPageCourses"></div>
+                        <div class="page2Courses notSelectedPageCourses"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="viewReviewsSection">
+                <div class="viewReviewsSectionAling">
+                    <h3>SRS</h3>
+                    <div class="viewReviewsSectionFlex">
+                        <div class="ilustrationSide">
+                            <h1 class="greatDevelopersText">
+                                great developers <br>
+                                aren´t born - they´re <br>
+                                built.
+                            </h1>
+                            <img src="laptop.png" alt="laptot">
+                            <h1></h1>
+                        </div>
+                        <div class="informationsSide">
+                            <h2>SRS</h2>
+                            <h1>Start &lt;Run/&gt; Succeed</h1>
+                            <p>
+                                At SRS – Software Revolution School, we believe that true learning happens through structure, practice, and purpose. When you purchase a course on our platform, you gain one full year of unlimited access to high-quality, project-based content carefully crafted by industry experts. Our curriculum is designed not only to teach you the theory, but to immerse you in real-world coding challenges that prepare you for the demands of today’s tech industry.
+                                Throughout your learning journey, you'll go through four essential evaluations that will help solidify your understanding and measure your progress. These assessments are thoughtfully designed to test your knowledge, improve your problem-solving skills, and ensure you're ready for real development tasks.
+                                Upon successful completion of all evaluations, you’ll be awarded a professional diploma, certifying your dedication and expertise — a powerful addition to your portfolio or resume.
+                                SRS stands for more than just education — it represents a commitment to excellence, growth, and transformation. With supportive guidance, a clear path, and a vibrant learning environment, we help you go beyond passive learning and truly become the developer you aspire to be.
+                            </p>
+                            <div class="avaliationsFlex">
+                                <div class="graduatesInformation">
+                                    <h3 class="numbersInformations">+40K</h3>
+                                    <p>Graduates from around the world</p>
+                                </div>
+                                <div class="avaliationsInformation">
+                                    <h3 class="numbersInformations">+200K</h3>
+                                    <p>Positive avaliatons around the world</p>
+                                </div>
+                            </div>
+                            <div class="buttonAndAvaliationsFlex">
+                                <button class="viewReviewsSectionButton">View Reviews</button>
+                                <img src="reviews.png" alt="reviews">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <footer id="footer">
