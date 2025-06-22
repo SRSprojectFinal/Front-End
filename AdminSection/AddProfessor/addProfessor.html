@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+        <link rel="stylesheet" href="addProfessor.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="goToLoginContainer">
+                <h1>Welcome Admin</h1>
+                <p>You want to manage professors?</p>
+                <button class="loginButton" onclick="goToManageProfessors()">Manage</button>
+            </div>
+            <div class="formContainer">
+                <form>
+                    <h1>Create an <span>Account</span>.</h1>
+                    <label for="username" id="labelName">Full Name</label>
+                    <input type="text" id="name" name="username" placeholder="Put your full name" required>
+                    <label for="email" id="labelEmail">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Put your e-mail" required>
+                    <label for="password" id="labelPassword">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Put your password" required>
+                    <label for="confirmPassword" id="labelConfirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Comfirm your password" required>
+                </form>
+                <input class="registerButton" type="button" onclick="register()" value="Register"></input>
+                <div id="msgError"></div>
+            </div>
+        </div>
+        <script src="addProfessor.js"></script>
+    </body>
+</html>

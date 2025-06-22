@@ -207,15 +207,15 @@ let carroselCount = 0;
 
 function carroselLeft() {
   carroselCount--;
-  carroselCoursesSection();
+  carroselLeftCoursesSection();
 }
 
 function carroselRight() {
   carroselCount++;
-  carroselCoursesSection();
+  carroselRightCoursesSection();
 }
 
-function carroselCoursesSection() {
+function carroselLeftCoursesSection() {
   cardsCourses.forEach(card => card.classList.remove("animationSlideToTop"));
 
   if (carroselCount % 2 === 0) {
@@ -253,6 +253,50 @@ function carroselCoursesSection() {
     }, 50);
     setTimeout(() => {
       cardCourseProgrammingBasis.classList.add("animationSlideToTop");
+    }, 100);
+
+    coursePageSwitch(page2Courses, page1Courses);
+  }
+}
+
+function carroselRightCoursesSection() {
+  cardsCourses.forEach(card => card.classList.remove("animationSlideToTop"));
+
+  if (carroselCount % 2 === 0) {
+
+    cardCourseFrontEnd.classList.remove("displayNone");
+    cardCourseBackEnd.classList.remove("displayNone");
+    cardCourseUiAndUx.classList.remove("displayNone");
+
+    cardCourseUiAndUx.classList.add("animationSlideToTop");
+    setTimeout(() => {
+      cardCourseBackEnd.classList.add("animationSlideToTop");
+    }, 50);
+    setTimeout(() => {
+      cardCourseFrontEnd.classList.add("animationSlideToTop");
+    }, 100);
+
+    cardCourseMobile.classList.add("displayNone");
+    cardCourseProgrammingBasis.classList.add("displayNone");
+    cardCourseDataScience.classList.add("displayNone");
+
+    coursePageSwitch(page1Courses, page2Courses);
+  } else {
+
+    cardCourseFrontEnd.classList.add("displayNone");
+    cardCourseBackEnd.classList.add("displayNone");
+    cardCourseUiAndUx.classList.add("displayNone");
+
+    cardCourseMobile.classList.remove("displayNone");
+    cardCourseProgrammingBasis.classList.remove("displayNone");
+    cardCourseDataScience.classList.remove("displayNone");
+
+    cardCourseProgrammingBasis.classList.add("animationSlideToTop");
+    setTimeout(() => {
+      cardCourseDataScience.classList.add("animationSlideToTop");
+    }, 50);
+    setTimeout(() => {
+      cardCourseMobile.classList.add("animationSlideToTop");
     }, 100);
 
     coursePageSwitch(page2Courses, page1Courses);

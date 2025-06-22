@@ -1,5 +1,3 @@
-
-
 function timerAnimations() {
 const h1AdminHeader = document.querySelector(".h1AdminHeader");
 const h1SectionHeader = document.querySelector(".h1SectionHeader");
@@ -28,3 +26,19 @@ setTimeout(() => {
 }
 
 timerAnimations();
+
+function goToManageStudents() {
+  window.location.href = "http://127.0.0.1:3000/AdminSection/ManageStudents/manageStudents.html"
+}
+
+function goToManageProfessor() {
+  window.location.href = "http://127.0.0.1:3000/AdminSection/ManageProfessor/manageProfessor.html"
+}
+
+function goToManageSchedule() {
+  window.location.href = "http://127.0.0.1:3000/AdminSection/ManageSchedule/manageSchedule.html"
+}
+
+function goToAddProfessor() {
+  window.location.href = "http://127.0.0.1:3000/AdminSection/AddProfessor/addProfessor.html"
+}

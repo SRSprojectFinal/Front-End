@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #E9E9E9;
+    font-family: "Jura", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  span {
+    background: linear-gradient(90deg, rgba(123, 28, 224, 1) 0%, rgba(209, 130, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    height: 720px;
+    width: 1035px;
+    border-radius: 25px;
+    background: #f7f7f7;
+    box-shadow:  20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
+  }
+
+  .goToLoginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(AddProfessorPictures/artistic-blurry-colorful-wallpaper-background.jpg);
+    background-size: cover;
+    color: #ffffff;
+    height: 684px;
+    width: 520px;
+    margin: 18px;
+    border-radius: 13px;
+  }
+
+  .goToLoginContainer h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+    .goToLoginContainer p {
+        font-size: 20px;
+        margin-bottom: 55px;
+    }
+
+    .registerButton{
+    margin-top: 10px;
+    font-family: "Jura", sans-serif;
+    height: 60px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #7B1CE0;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: center;
+    border: #7B1CE0 3px solid;
+    transition: 0.3s;
+    }
+
+    .registerButton:hover {
+        background-color: transparent;
+        color: #ffffff;
+        border: #7B1CE0 3px solid;
+        color: #7B1CE0;
+    }
+
+  .formContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 54px;
+  }
+
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="text"]:focus {
+  outline: 0;
+  }
+
+  .formContainer h1{
+    font-family: "Jura", sans-serif;
+    font-size: 40px;
+    margin-bottom: 35px;
+  }
+
+  .formContainer form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formContainer form input {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    background-color: transparent;
+    font-family: "Jura", sans-serif;
+    font-size: 14px;
+    width: 385px;
+    height: 60px;
+  }
+
+  .formContainer form label{
+    font-size: 20px;
+  }
+
+  .loginButton{
+        background-color: transparent;
+        color: #ffffff;
+        height: 60px;
+        width: 160px;
+        border: #7B1CE0 3px solid;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: "Jura", sans-serif;
+  }
+
+  #msgError {
+  display: none;
+  color: red;
+  margin-bottom: -31px;
+  margin-top: 10px;
+}
+
+    .loginButton:hover{
+        background-color: #7B1CE0;
+        color: #ffffff;
+    }
+    
+    @keyframes shake {
+  0% {
+    transform: translateX(4px);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
