@@ -43,15 +43,15 @@
             <div class="headerContent">
                 <div class="headerTitle">
                     <h2>SRS</h2>
-                    <h1>Start &lt;Run/&gt; Succeed</h1>
+                    <h1>Start &lt;/Run&gt; Succeed</h1>
                     <p>
                         SRS is an online learning platform designed to empower future developers with real-world programming skills. Whether you're starting from scratch or leveling up your expertise, SRS offers hands-on courses in front-end, back-end, mobile, data science, and more.
                         Join a growing community of learners, follow a guided learning path, track your progress, and build a portfolio of completed projects. With our dynamic curriculum and expert instructors, you’ll be ready to take on real tech challenges — and succeed.
                         SRS: Start, Run, Succeed.
                     </p>
                     <div class="headerButtons">
-                        <input type="button" class="headerViewReviewsButton" value="View Reviews"/>
-                        <input type="button" class="headerAboutUsButton" value="About us"/>
+                        <input type="button" onclick="goToViewReviews()" class="headerViewReviewsButton" value="View Reviews"/>
+                        <input type="button" onclick="goToAboutUs()" class="headerAboutUsButton" value="About us"/>
                     </div>
                 </div>
                 <div class="headerImg">
@@ -63,34 +63,58 @@
             <section id="coursesInformationsSection">
                 <div class="coursesInformationsSectionAling">
                     <button class="coursesInformationsButtonLeft" onclick="carroselInformationsLeft()"><img src="ButtonSRS.png" alt="rotate Carrosel"></button> 
-                    <button class="coursesInformationsButtonRight" onclick="carroselInformationsright()"><img src="ButtonSRS.png" alt="rotate Carrosel"></button>
+                    <button class="coursesInformationsButtonRight" onclick="carroselInformationsRight()"><img src="ButtonSRS.png" alt="rotate Carrosel"></button>
                     <div class="coursesInformationsSectionTitle">
                         <h1><span>About</span> SRS courses</h1>
                         <p>Adobe licenses provide access to creative and productive tools, available on a subscription basis for individuals and businesses.</p>
                     </div>
                     <div class="coursesInformationsSectionCards">
-                        <div class="card cardFrontEnd">
+                        <div class="card cardFrontEnd displayNone">
                             <div class="cardTitleAndImg">
                                 <h1>COURSE FRONT-END</h1>
-                                <img src="skill-icons--react-dark.png" alt="React">
+                                <img src="skill-icons--react-dark.png" alt="react">
                             </div>
                             <p>The Front-End Development course teaches the foundations of web design using HTML, CSS, and JavaScript. It also introduces React for building interactive interfaces. Students learn to create responsive and clean website.</p>
                             <div class="cardStyleWidget"></div>
                         </div>
-                        <div class="card cardBackEnd">
+                        <div class="card cardBackEnd displayNone">
                             <div class="cardTitleAndImg">
                                 <h1>COURSE BACK-END</h1>
-                                <img src="skill-icons--react-dark.png" alt="React">
+                                <img src="skill-icons--python-dark.png" alt="python">
                             </div>
                             <p>The Back-End Development course teaches how to build and manage the server side of web applications. Using technologies like Java and SQL, students learn to create APIs, connect databases, and handle data securely and efficiently.</p>
                             <div class="cardStyleWidget"></div>
                         </div>
-                        <div class="card cardUiAndUx">
+                        <div class="card cardUiAndUx displayNone">
                             <div class="cardTitleAndImg">
                                 <h1>UI & UX DESING</h1>
-                                <img src="skill-icons--react-dark.png" alt="React">
+                                <img src="skill-icons--figma-dark.png" alt="figma">
                             </div>
                             <p>The UI & UX Design course teaches how to design intuitive and engaging digital interfaces. Students learn about user wireframing and prototyping using tools like Figma to create effective user experiences.</p>
+                            <div class="cardStyleWidget"></div>
+                        </div>
+                        <div class="card cardMobile">
+                            <div class="cardTitleAndImg">
+                                <h1>COURSE MOBILE</h1>
+                                <img src="skill-icons--swift.png" alt="swift">
+                            </div>
+                            <p>The Mobile Development course teaches how to create cross-platform mobile apps using modern tools. Students learn to build responsive and functional applications with frameworks like Flutter and React Native.</p>
+                            <div class="cardStyleWidget"></div>
+                        </div>
+                        <div class="card cardDataScience">
+                            <div class="cardTitleAndImg">
+                                <h1>DATA SCIENCE</h1>
+                                <img src="skill-icons--mysql-light.png" alt="mysql">
+                            </div>
+                            <p>The Data Science course teaches how to analyze data and build smart solutions. Students use Python, Pandas, and Scikit-learn to explore datasets, create visualizations, and develop predictive models.</p>
+                            <div class="cardStyleWidget"></div>
+                        </div>
+                        <div class="card cardProgrammingBasis">
+                            <div class="cardTitleAndImg">
+                                <h1>BASICS OF PROGRAMMING</h1>
+                                <img src="skill-icons--vscode-dark.png" alt="vccode">
+                            </div>
+                            <p>The Programming Basics course introduces the core concepts of coding for beginners. Students learn how to write simple programs using logic, loops, and functions, gaining a solid foundation for any area of software development.</p>
                             <div class="cardStyleWidget"></div>
                         </div>
                     </div>
@@ -103,12 +127,12 @@
             <section id="coursesSection">
                 <div class="coursesSectionAling">
                     <button class="coursesButtonLeft" onclick="carroselLeft()"><img src="ButtonCourses.png" alt="rotate Carrosel"></button> 
-                    <button class="coursesButtonRight" onclick="carroselright()"><img src="ButtonCourses.png" alt="rotate Carrosel"></button>
+                    <button class="coursesButtonRight" onclick="carroselRight()"><img src="ButtonCourses.png" alt="rotate Carrosel"></button>
                     <h3>SRS</h3>
                     <h1 class="coursesSectionTitle">SRS COURSES</h1>
                     <div class="coursesSectionCards">
                         <div class="cardCourse cardCourseFrontEnd">
-                            <h4>Front-End Course</h4>
+                            <h4>Front-End</h4>
                             <p class="coursePrice">$ 219.99 / y</p>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -116,7 +140,7 @@
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
-                                <p>1 GB of cloud storage</p>
+                                <p>1 TB of cloud storage</p>
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -129,7 +153,7 @@
                             <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
                         </div>
                         <div class="cardCourse cardCourseBackEnd">
-                            <h4>Back-End Course</h4>
+                            <h4>Back-End</h4>
                             <p class="coursePrice">$ 229.99 / y</p>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -137,7 +161,7 @@
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
-                                <p>1 GB of cloud storage</p>
+                                <p>1 TB of cloud storage</p>
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -153,8 +177,8 @@
                             </div>
                             <button class="marginFiveAdvantages" onclick="addToCart(this)">Buy Now</button>
                         </div>
-                        <div class="cardCourse cardCourseMobile">
-                            <h4>Mobile Course</h4>
+                        <div class="cardCourse cardCourseMobile displayNone">
+                            <h4>Mobile</h4>
                             <p class="coursePrice">$ 219.99 / y</p>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -162,7 +186,7 @@
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
-                                <p>1 GB of cloud storage</p>
+                                <p>1 TB of cloud storage</p>
                             </div>
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
@@ -171,6 +195,73 @@
                             <div class="courseInformationFlex">
                                 <div class="decoration"><i class="fa-solid fa-check"></i></div>
                                 <p>Includes device emulator lab</p>
+                            </div>
+                            <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                        <div class="cardCourse cardCourseDataScience displayNone">
+                            <h4>Data Science</h4>
+                            <p class="coursePrice">$ 229.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>2 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>1 TB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Real-world datasets<br> for pratice</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Jupyter notebook<br> cloud Workspace</p>
+                            </div>
+                            <button class="marginFiveAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                        <div class="cardCourse cardCourseUiAndUx">
+                            <h4>UI & UX Desing</h4>
+                            <p class="coursePrice">$ 174.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>2 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>100 GB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Includes Figma Pro</p>
+                            </div>
+                            <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
+                        </div>
+                        <div class="cardCourse cardCourseProgrammingBasis displayNone">
+                            <h4>Programming Basis</h4>
+                            <p class="coursePrice">$ 199.99 / y</p>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>2 live classes per week</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>100 GB of cloud storage</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Certificate of completion</p>
+                            </div>
+                            <div class="courseInformationFlex">
+                                <div class="decoration"><i class="fa-solid fa-check"></i></div>
+                                <p>Visual coding exercises</p>
                             </div>
                             <button class="marginFourAdvantages" onclick="addToCart(this)">Buy Now</button>
                         </div>
@@ -192,11 +283,16 @@
                                 built.
                             </h1>
                             <img src="laptop.png" alt="laptot">
-                            <h1></h1>
+                            <h1 class="pTagText">
+                                &lt;code&gt;<br>
+                                Your skills are your<br>
+                                superpower.<br> 
+                                &lt;/code&gt;<br>
+                            </h1>
                         </div>
                         <div class="informationsSide">
                             <h2>SRS</h2>
-                            <h1>Start &lt;Run/&gt; Succeed</h1>
+                            <h1>Start &lt;/Run&gt; Succeed</h1>
                             <p>
                                 At SRS – Software Revolution School, we believe that true learning happens through structure, practice, and purpose. When you purchase a course on our platform, you gain one full year of unlimited access to high-quality, project-based content carefully crafted by industry experts. Our curriculum is designed not only to teach you the theory, but to immerse you in real-world coding challenges that prepare you for the demands of today’s tech industry.
                                 Throughout your learning journey, you'll go through four essential evaluations that will help solidify your understanding and measure your progress. These assessments are thoughtfully designed to test your knowledge, improve your problem-solving skills, and ensure you're ready for real development tasks.
