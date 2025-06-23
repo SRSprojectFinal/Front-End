@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mobile Course</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Slackside+One&display=swap" rel="stylesheet">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
+        <link rel="stylesheet" href="mobileTable.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                SRS
+            </div>
+            <ul class="nav-links">
+                <li><a href="http://127.0.0.1:3000">Home</a></li>
+                <li><a href="#manageFrontEndSection">Manage</a></li>
+                <li><a href="#footer">about us</a></li>
+            </ul>
+            <div class="navbarButtons">
+                <p class="account"></p>
+                <button onclick="logout()" class="logoutButton">Logout</button>    
+            </div>
+        </nav>
+        <main>
+            <section id="manageFrontEndSection">
+                <h1><span>Mobile</span> Course.</h1>
+                <p class="manageFrontEndInformationP">This section allows instructors to manage student grades for the Mobile course. Professors can review each student's performance across different assessments and update scores when necessary. With an intuitive interface, it's easy to ensure accuracy and fairness in grading. Keep your students’ progress up to date while maintaining academic transparency.</p>
+                <table>
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+        <footer id="footer">
+            <p class="suportToBorder">suport</p>
+            <div class="divBorderFooter"></div>
+            <div class="flexTofooterContent">
+                <div class="footerPersonalSocialMedia">
+                    <h3><span>SRS</span></h3>
+                    <div class="footerIcons">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="footerContent">
+                    <p><span>Company</span></p>
+                    <p>About Us</p>
+                    <p>Terms of Service</p>
+                    <p>Privacy Policy</p>
+                    <p>Careers</p>
+                    <p>Contact</p>
+                    <p>Press</p>
+                    <p>Investor Relations</p>
+                </div>
+                <div class="footerContent">
+                    <p><span>Resources</span></p>
+                    <p>Help Center</p>
+                    <p>Technical Support</p>
+                    <p>FAQs</p>
+                    <p>Tutorials</p>
+                    <p>Documentation</p>
+                    <p>System Status</p>
+                    <p>Accessibility</p>
+                </div>
+                <div class="footerContent">
+                    <p><span>Apps</span></p>
+                    <p>Download App</p>
+                    <p>Google Play</p>
+                    <p>App Store</p>
+                    <p>Web Version</p>
+                    <p>Public API</p>
+                    <p>Developer Tools</p>
+                    <p>Integration Guides</p>
+                </div>
+            </div>
+        </footer>
+        <script src="mobileTable.js"></script>
+    </body>
+</html>

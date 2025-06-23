@@ -5,10 +5,10 @@ let animationTriggered = false;
 
 let ministeringFrontEnd = true;
 let ministeringBackEnd = true;
-let ministeringMobile = false;
+let ministeringMobile = true;
 let ministeringDataScience = true;
-let ministeringUIandUX = false;
-let ministeringProgrammingBasis = false;
+let ministeringUIandUX = true;
+let ministeringProgrammingBasis = true;
 
 const upperCardMinistering = document.querySelector(".cardMinistering");
 
@@ -164,3 +164,27 @@ cardsProfessor.forEach(({ condition, card, name }) => {
         upperCardMinistering.innerHTML += `<p>${name}</p>`;
     }
 });
+
+function goToFrontEndTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/FrontEndTable/frontEndTable.html"
+}
+
+function goToBackEndTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/BackEndTable/backEndTable.html"
+}
+
+function goToMobileTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/MobileTable/mobileTable.html"
+}
+
+function goToDataScienceTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/DataScienceTable/dataScienceTable.html"
+}
+
+function goToProgrammingBasisTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/ProgrammingBasisTable/programmingBasisTable.html"
+}
+
+function goToUiAndUxTable() {
+    window.location.href = "http://127.0.0.1:3000/ProfessorSection/UiAndUxTable/uiAndUxTable.html"
+}
