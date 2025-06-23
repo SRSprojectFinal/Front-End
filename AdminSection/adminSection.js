@@ -1,3 +1,21 @@
+let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+let professors = JSON.parse(localStorage.getItem("userList") || []);
+
+let loggedName = loggedUser.userName;
+const firstNameLoggedUser = loggedName.split(" ")[0];
+
+let account = document.querySelector(".account");
+account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("loggedUser");
+  localStorage.removeItem("cart");
+  window.location.href = "http://127.0.0.1:3000";
+}
+
+
+
 function timerAnimations() {
 const h1AdminHeader = document.querySelector(".h1AdminHeader");
 const h1SectionHeader = document.querySelector(".h1SectionHeader");

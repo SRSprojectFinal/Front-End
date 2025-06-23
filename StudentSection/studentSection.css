@@ -280,7 +280,7 @@ position: absolute;
   .studentCards .card {
     width: 339px;
     height: 351px;
-    background-color: #e4e4e4;
+    background-color: #ffffff;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -290,7 +290,7 @@ position: absolute;
     padding-left: 60px;
     padding-right: 60px;
     gap: 15px;
-    box-shadow:  9px 9px 18px #c4c4c4, -9px -9px 18px #f7f7f7;
+    box-shadow:  9px 9px 15px #c4c4c4;
     transition: 0.3s;
   }
 

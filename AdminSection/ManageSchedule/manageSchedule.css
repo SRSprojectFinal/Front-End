@@ -144,7 +144,7 @@
     background-color: #F3F3F3;
   }
 
-  .deleteAccountButton {
+  .removeProfessorButton {
     color: #ffffff;
     height: 48px;
     width: 120px;
@@ -157,9 +157,49 @@
     font-family: "Jura", sans-serif;
   }
 
-  .deleteAccountButton:hover {
+  .removeProfessorButton:hover {
     background-color: transparent;
     color: #e01c1c;
+  }
+
+  form {
+    display: flex;
+    gap: 20px;
+  }
+
+  .courseSelect {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #aaaaaa;
+    color: #aaaaaa;
+    border-radius: 9px;
+    padding: 8px 32px;
+    font-size: 18px;
+    cursor: pointer;
+    background-image: url('seta.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    font-family: "Jura", sans-serif;
+    outline: 0;
+}
+
+.buttonSubmitProfessor {
+    color: #ffffff;
+    height: 48px;
+    width: 120px;
+    background-color: #7B1CE0;
+    border: #7B1CE0 1px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Jura", sans-serif;
+}
+
+.buttonSubmitProfessor:hover {
+    background-color: transparent;
+    color: #7B1CE0;
   }
 
   footer {

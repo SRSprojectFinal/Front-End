@@ -1,3 +1,6 @@
+let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+let professors = JSON.parse(localStorage.getItem("userList") || []);
+
 let animationTriggered = false;
 
 let ministeringFrontEnd = true;
@@ -38,6 +41,23 @@ const cardProgrammingBasis = document.querySelector(".cardProgrammingBasis");
 const programmingBasisProgressBar = document.querySelector(".programmingBasisProgressBar");
 const programmingBasisValue = document.querySelector(".programmingBasisValue");
 const programmingBasisCompletedText = document.querySelector(".programmingBasisCompletedText");
+
+
+
+let loggedName = loggedUser.userName;
+const firstNameLoggedUser = loggedName.split(" ")[0];
+
+let cardProfessorName = document.querySelector(".cardProfessorName");
+let account = document.querySelector(".account");
+account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
+cardProfessorName.innerHTML = firstNameLoggedUser;
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("loggedUser");
+  localStorage.removeItem("cart");
+  window.location.href = "http://127.0.0.1:3000";
+}
 
 
 

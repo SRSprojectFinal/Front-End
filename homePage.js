@@ -1,3 +1,6 @@
+let carroselInformationsCount = 0;
+let carroselCount = 0;
+
 let logoutButton = document.querySelector(".logoutButton");
 let account = document.querySelector(".account");
 let registerButton = document.querySelector(".registerButton");
@@ -12,8 +15,8 @@ let bar = document.querySelector(".bar");
 let page1 = document.querySelector(".page1");
 let page2 = document.querySelector(".page2");
 
-let page1Courses = document.querySelector(".page1Courses")
-let page2Courses = document.querySelector(".page2Courses")
+let page1Courses = document.querySelector(".page1Courses");
+let page2Courses = document.querySelector(".page2Courses");
 
 let cardFrontEnd = document.querySelector(".cardFrontEnd");
 let cardBackEnd = document.querySelector(".cardBackEnd");
@@ -22,14 +25,13 @@ let cardDataScience = document.querySelector(".cardDataScience");
 let cardProgrammingBasis = document.querySelector(".cardProgrammingBasis");
 let cardUiAndUx = document.querySelector(".cardUiAndUx");
 
-let cardCourseFrontEnd = document.querySelector(".cardCourseFrontEnd")
-let cardCourseBackEnd = document.querySelector(".cardCourseBackEnd")
-let cardCourseMobile = document.querySelector(".cardCourseMobile")
-let cardCourseUiAndUx = document.querySelector(".cardCourseUiAndUx")
-let cardCourseDataScience = document.querySelector(".cardCourseDataScience")
-let cardCourseProgrammingBasis = document.querySelector(".cardCourseProgrammingBasis")
+let cardCourseFrontEnd = document.querySelector(".cardCourseFrontEnd");
+let cardCourseBackEnd = document.querySelector(".cardCourseBackEnd");
+let cardCourseMobile = document.querySelector(".cardCourseMobile");
+let cardCourseUiAndUx = document.querySelector(".cardCourseUiAndUx");
+let cardCourseDataScience = document.querySelector(".cardCourseDataScience");
+let cardCourseProgrammingBasis = document.querySelector(".cardCourseProgrammingBasis");
 
-let cardCourses;
 let canAddToCart = true;
 
 const cardsInformation = [
@@ -37,21 +39,21 @@ const cardsInformation = [
   cardMobile, cardProgrammingBasis, cardDataScience
 ];
 
-
 const cardsCourses = [
   cardCourseFrontEnd, cardCourseBackEnd, cardCourseUiAndUx,
   cardCourseMobile, cardCourseProgrammingBasis, cardCourseDataScience
 ];
 
-
 if (localStorage.getItem("token") == null) {
-  logoutButton.setAttribute("style", "display: none");
-  account.setAttribute("style", "display: none");
-  bar.setAttribute("style", "display: none");
+  logoutButton.style.display = "none";
+  account.style.display = "none";
+  bar.style.display = "none";
 
-  navLinks.removeChild(studentSection);
-  navLinks.removeChild(professorSection);
-  navLinks.removeChild(adminSection);
+  if (studentSection) navLinks.removeChild(studentSection);
+  if (professorSection) navLinks.removeChild(professorSection);
+  if (adminSection) navLinks.removeChild(adminSection);
+
+  cart.style.display = "none";
 
 } else {
   let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
@@ -59,16 +61,15 @@ if (localStorage.getItem("token") == null) {
   let loggedName = loggedUser.userName;
   const firstNameLoggedUser = loggedName.split(" ")[0];
 
-  let account = document.querySelector(".account");
   account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
-  registerButton.setAttribute("style", "display: none");
-  loginButton.setAttribute("style", "display: none");
+  registerButton.style.display = "none";
+  loginButton.style.display = "none";
 
   let loggedEmail = loggedUser.email;
 
   if(loggedEmail.includes("@student.srs.edu")) {
     navLinks.insertAdjacentHTML("beforeend", `<li class="studentSection"><a href="http://127.0.0.1:3000/StudentSection/studentSection.html">Student Section</a></li>`);
-    cart.setAttribute("style", "display: flex");
+    cart.style.display = "flex";
   }
 
   if(loggedEmail.includes("@professor.srs.edu")) {
@@ -82,9 +83,6 @@ if (localStorage.getItem("token") == null) {
   }
 }
 
-
-
-
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("loggedUser");
@@ -92,15 +90,14 @@ function logout() {
   window.location.href = "http://127.0.0.1:3000";
 }
 
-
-
-
-
 function addToCart(button) {
-
   if (!canAddToCart) {
     alert("You do not have permission to add products to the cart!");
     return;
+  }
+
+  if (localStorage.getItem("token") == null) {
+    window.location.href = "http://127.0.0.1:3000/Login/login.html";
   }
 
   const productsInfos = button.parentElement;
@@ -125,25 +122,17 @@ function addToCart(button) {
   }
 }
 
-
-
-
-
-
-let carroselInformationsCount = 0;
-
 function carroselInformationsLeft() {
-  carroselInformationsCount--
+  carroselInformationsCount--;
   carroselInformationsSection();
 }
 
 function carroselInformationsRight() {
-  carroselInformationsCount++
+  carroselInformationsCount++;
   carroselInformationsSection();
 }
 
 function carroselInformationsSection() {
-  
   cardsInformation.forEach(card => card.classList.remove("cardAnimationScale"));
 
   if (carroselInformationsCount % 2 === 0) {
@@ -199,27 +188,20 @@ function pageSwitch(pageToSelect, pageToUnselect) {
 
 carroselInformationsSection();
 
-
-
-
-
-let carroselCount = 0;
-
 function carroselLeft() {
   carroselCount--;
-  carroselLeftCoursesSection();
+  carroselCoursesSection();
 }
 
 function carroselRight() {
   carroselCount++;
-  carroselRightCoursesSection();
+  carroselCoursesSection();
 }
 
-function carroselLeftCoursesSection() {
+function carroselCoursesSection() {
   cardsCourses.forEach(card => card.classList.remove("animationSlideToTop"));
 
   if (carroselCount % 2 === 0) {
-
     cardCourseFrontEnd.classList.remove("displayNone");
     cardCourseBackEnd.classList.remove("displayNone");
     cardCourseUiAndUx.classList.remove("displayNone");
@@ -238,7 +220,6 @@ function carroselLeftCoursesSection() {
 
     coursePageSwitch(page1Courses, page2Courses);
   } else {
-
     cardCourseFrontEnd.classList.add("displayNone");
     cardCourseBackEnd.classList.add("displayNone");
     cardCourseUiAndUx.classList.add("displayNone");
@@ -253,50 +234,6 @@ function carroselLeftCoursesSection() {
     }, 50);
     setTimeout(() => {
       cardCourseProgrammingBasis.classList.add("animationSlideToTop");
-    }, 100);
-
-    coursePageSwitch(page2Courses, page1Courses);
-  }
-}
-
-function carroselRightCoursesSection() {
-  cardsCourses.forEach(card => card.classList.remove("animationSlideToTop"));
-
-  if (carroselCount % 2 === 0) {
-
-    cardCourseFrontEnd.classList.remove("displayNone");
-    cardCourseBackEnd.classList.remove("displayNone");
-    cardCourseUiAndUx.classList.remove("displayNone");
-
-    cardCourseUiAndUx.classList.add("animationSlideToTop");
-    setTimeout(() => {
-      cardCourseBackEnd.classList.add("animationSlideToTop");
-    }, 50);
-    setTimeout(() => {
-      cardCourseFrontEnd.classList.add("animationSlideToTop");
-    }, 100);
-
-    cardCourseMobile.classList.add("displayNone");
-    cardCourseProgrammingBasis.classList.add("displayNone");
-    cardCourseDataScience.classList.add("displayNone");
-
-    coursePageSwitch(page1Courses, page2Courses);
-  } else {
-
-    cardCourseFrontEnd.classList.add("displayNone");
-    cardCourseBackEnd.classList.add("displayNone");
-    cardCourseUiAndUx.classList.add("displayNone");
-
-    cardCourseMobile.classList.remove("displayNone");
-    cardCourseProgrammingBasis.classList.remove("displayNone");
-    cardCourseDataScience.classList.remove("displayNone");
-
-    cardCourseProgrammingBasis.classList.add("animationSlideToTop");
-    setTimeout(() => {
-      cardCourseDataScience.classList.add("animationSlideToTop");
-    }, 50);
-    setTimeout(() => {
-      cardCourseMobile.classList.add("animationSlideToTop");
     }, 100);
 
     coursePageSwitch(page2Courses, page1Courses);
@@ -323,21 +260,18 @@ function coursePageSwitch(pageToSelect, pageToUnselect) {
   }, 300);
 }
 
-
-
-
 function goToLogin(){
-    window.location.href = "http://127.0.0.1:3000/Login/login.html";
+  window.location.href = "http://127.0.0.1:3000/Login/login.html";
 }
 
 function goToRegister(){
-    window.location.href = "http://127.0.0.1:3000/Register/register.html";
+  window.location.href = "http://127.0.0.1:3000/Register/register.html";
 }
 
 function goToViewReviews(){
-    window.location.href = "http://127.0.0.1:3000/#viewReviewsSection"
+  window.location.href = "http://127.0.0.1:3000/#viewReviewsSection"
 }
 
 function goToAboutUs(){
-    window.location.href = "http://127.0.0.1:3000/#footer";
+  window.location.href = "http://127.0.0.1:3000/#footer";
 }
