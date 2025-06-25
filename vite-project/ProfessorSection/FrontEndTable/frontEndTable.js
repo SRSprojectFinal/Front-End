@@ -1,15 +1,4 @@
-const studentScheduleDb = [
-  { email: "ana.silva@student.srs.edu", TP1: "D", TP2: "DL", TP3: "DML", AT: "D" },
-  { email: "bruno.souza@student.srs.edu", TP1: "DL", TP2: "ND", TP3: "D", AT: null },
-  { email: "carla.oliveira@student.srs.edu", TP1: "ND", TP2: "D", TP3: "DL", AT: "DML" },
-  { email: "daniel.costa@student.srs.edu", TP1: "D", TP2: "D", TP3: "ND", AT: "DL" },
-  { email: "elisa.ferreira@student.srs.edu", TP1: "DML", TP2: "D", TP3: "D", AT: "ND" },
-  { email: "felipe.almeida@student.srs.edu", TP1: "DL", TP2: "DL", TP3: "D", AT: "D" },
-  { email: "gabriela.ramos@student.srs.edu", TP1: "ND", TP2: "ND", TP3: "DML", AT: null },
-  { email: "henrique.martins@student.srs.edu", TP1: "D", TP2: "DML", TP3: "DL", AT: "DML" },
-  { email: "isabela.lima@student.srs.edu", TP1: "DL", TP2: "DL", TP3: "DML", AT: "ND" },
-  { email: "joao.pereira@student.srs.edu", TP1: "D", TP2: "D", TP3: "D", AT: null }
-];
+let studentScheduleDb = [];
 
 let loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || { userName: "João Professor" };
 const thead = document.querySelector("thead");
@@ -23,6 +12,34 @@ function logout() {
   localStorage.removeItem("loggedUser");
   localStorage.removeItem("cart");
   window.location.href = "http://localhost:3000";
+}
+
+// Função para buscar alunos do backend
+async function fetchStudentsFromBackend() {
+  try {
+    const response = await fetch('http://localhost:8080/cursos/frontend/alunos');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    studentScheduleDb = data;
+    updateStudents();
+  } catch (error) {
+    console.error('Erro ao buscar alunos do backend:', error);
+    // Em caso de erro, mostrar mensagem na tabela
+    thead.innerHTML = `
+      <tr>
+        <th>Student E-mail</th>
+        <th>TP1</th>
+        <th>TP2</th>
+        <th>TP3</th>
+        <th>AT</th>
+        <th>Situation</th>
+        <th>Edit Notes</th>
+      </tr>
+    `;
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Erro ao carregar dados do servidor</td></tr>';
+  }
 }
 
 function updateStudents() {
@@ -40,6 +57,11 @@ function updateStudents() {
 
   tbody.innerHTML = "";
   let tbodyCount = 0;
+
+  if (studentScheduleDb.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">Nenhum aluno encontrado</td></tr>';
+    return;
+  }
 
   studentScheduleDb.forEach(student => {
     const schedule = [student.TP1, student.TP2, student.TP3, student.AT];
@@ -87,4 +109,5 @@ function updateStudents() {
   });
 }
 
-updateStudents();
+// Inicializar buscando dados do backend
+fetchStudentsFromBackend();

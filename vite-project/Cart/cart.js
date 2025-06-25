@@ -140,3 +140,64 @@ function updateCart() {
     }
 
 updateCart()
+
+// Função para processar a compra dos cursos
+function Buy() {
+    // Verificar se há usuário logado
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+    if (!loggedUser) {
+        alert("Você precisa estar logado para fazer a compra!");
+        window.location.href = "http://localhost:3000/Login/login.html";
+        return;
+    }
+
+    // Obter o carrinho
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    // Dados do usuário para enviar ao backend
+    const userData = {
+        nomeCompleto: loggedUser.userName,
+        emailEducacional: loggedUser.email,
+        tp1: "ND",
+        tp2: "ND",
+        tp3: "ND", 
+        assesment: "ND"
+    };
+
+    // Mapeamento dos cursos para os endpoints do backend
+  
+
+    // Processar cada curso no carrinho
+    cart.forEach(item => {
+        const endpoint = item.ProductNameCart;
+        if (endpoint) {
+            fetch(`http://localhost:8080/cursos/${endpoint}/adicionar`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "sucesso") {
+                    console.log(`Aluno adicionado com sucesso ao curso ${item.ProductNameCart}`);
+                } else {
+                    console.error(`Erro ao adicionar aluno ao curso ${item.ProductNameCart}:`, data.mensagem);
+                }
+            })
+            .catch(error => {
+                console.error(`Erro na requisição para o curso ${item.ProductNameCart}:`, error);
+            });
+        }
+    });
+
+    // Limpar o carrinho e mostrar mensagem de sucesso
+    localStorage.removeItem("cart");
+    alert("Compra realizada com sucesso! Você foi inscrito nos cursos selecionados.");
+    window.location.reload();
+}

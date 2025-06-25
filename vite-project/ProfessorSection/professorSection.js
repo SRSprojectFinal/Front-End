@@ -4,13 +4,6 @@ window.onload = () => {
   
     let animationTriggered = false;
   
-    let ministeringFrontEnd = true;
-    let ministeringBackEnd = true;
-    let ministeringMobile = true;
-    let ministeringDataScience = true;
-    let ministeringUIandUX = true;
-    let ministeringProgrammingBasis = true;
-  
     const upperCardMinistering = document.querySelector(".cardMinistering");
   
     const cardFrontEnd = document.querySelector(".cardFrontEnd");
@@ -51,13 +44,7 @@ window.onload = () => {
   
     account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
     cardProfessorName.innerHTML = firstNameLoggedUser;
-  
-    function logout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("loggedUser");
-      localStorage.removeItem("cart");
-      window.location.href = "http://localhost:3000";
-    }
+
   
     function animateProgress(value, progressBar, completedText, finalValue) {
       let initialProgress = 0;
@@ -142,24 +129,59 @@ window.onload = () => {
       }
     });
   
-    const cardsProfessor = [
-      { condition: ministeringFrontEnd, card: cardFrontEnd, name: "Front End" },
-      { condition: ministeringBackEnd, card: cardBackEnd, name: "Back End" },
-      { condition: ministeringMobile, card: cardMobile, name: "Mobile" },
-      { condition: ministeringDataScience, card: cardDataScience, name: "Data Science" },
-      { condition: ministeringUIandUX, card: cardUIandUX, name: "UI & UX" },
-      { condition: ministeringProgrammingBasis, card: cardProgrammingBasis, name: "Programming Basis" },
-    ];
+    // Função para buscar os cursos do professor logado
+    function buscarCursosDoProfessor() {
+      fetch('http://localhost:8080/grade')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            const grade = data.grade;
+            const cursosDoProfessor = grade.filter(item => 
+              item.emailEducacional === loggedUser.email
+            );
+            
+            // Mapeamento dos nomes dos cursos para os cards
+            const mapeamentoCursos = {
+              'Front-End': { card: cardFrontEnd, name: 'Front End' },
+              'Back-End': { card: cardBackEnd, name: 'Back End' },
+              'Mobile': { card: cardMobile, name: 'Mobile' },
+              'Data-Science': { card: cardDataScience, name: 'Data Science' },
+              'UI_UX': { card: cardUIandUX, name: 'UI & UX' },
+              'Programming-Basis': { card: cardProgrammingBasis, name: 'Programming Basis' }
+            };
+            
+            // Esconder todos os cards primeiro
+            Object.values(mapeamentoCursos).forEach(({ card }) => {
+              card.style.display = "none";
+            });
+            
+            // Limpar o conteúdo do cardMinistering
+            upperCardMinistering.innerHTML = '<h3>Ministering</h3>';
+            
+            // Mostrar apenas os cards dos cursos que o professor ministra
+            cursosDoProfessor.forEach(item => {
+              const cursoInfo = mapeamentoCursos[item.curso];
+              if (cursoInfo) {
+                cursoInfo.card.style.display = "flex";
+                upperCardMinistering.innerHTML += `<p>${cursoInfo.name}</p>`;
+              }
+            });
+            
+            // Atualizar as quantidades apenas para os cursos visíveis
+            atualizarAmounts();
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao buscar cursos do professor:', error);
+          // Em caso de erro, mostrar todos os cards (comportamento padrão)
+          Object.values(mapeamentoCursos).forEach(({ card }) => {
+            card.style.display = "block";
+          });
+        });
+    }
   
-    cardsProfessor.forEach(({ condition, card, name }) => {
-      if (!condition) {
-        card.style.display = "none";
-      } else {
-        upperCardMinistering.innerHTML += `<p>${name}</p>`;
-      }
-    });
-  
-    //nessa tela só m
+    // Chama a função para buscar os cursos do professor
+    buscarCursosDoProfessor();
   
     // Função para buscar e atualizar a quantidade de alunos de cada curso 
     function atualizarAmounts() {
@@ -200,9 +222,6 @@ window.onload = () => {
         .catch(() => document.getElementById('amountProgrammingBasis').textContent = '-');
     }
 
-    // Chama a função ao carregar a página
-    atualizarAmounts();
-
     /*
       Explicação sobre data.quantidade:
       ---------------------------------
@@ -231,6 +250,13 @@ window.onload = () => {
   // As funções precisam estar no escopo global (fora do window.onload) para que o onclick do HTML consiga acessá-las e os botões funcionem corretamente.
   // Isso é necessário porque o onclick do HTML só procura funções no escopo global (window). Funções declaradas dentro do window.onload não ficam acessíveis globalmente.
 
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loggedUser");
+    localStorage.removeItem("cart");
+    window.location.href = "http://localhost:3000";
+  }
+  
   function goToFrontEndTable() {
     window.location.href = "http://localhost:3000/ProfessorSection/FrontEndTable/frontEndTable.html";
   }

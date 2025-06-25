@@ -1,35 +1,217 @@
-// Simulated Database //
+document.addEventListener("DOMContentLoaded", function () {
+  const rawLoggedUser = localStorage.getItem("loggedUser");
+  let loggedUser = null;
 
-let simulatedDatabase = ["Bruno", "Marcio", "Miguel", "Igor", "Fernando"];
+  if (rawLoggedUser) {
+    try {
+      loggedUser = JSON.parse(rawLoggedUser);
+    } catch (e) {
+      console.error("Erro ao fazer parse do loggedUser:", e);
+    }
+  }
 
-// ================== //
+  // Impede execução se não houver usuário logado
+  if (!loggedUser) {
+    alert("Usuário não logado. Redirecionando para login.");
+    window.location.href = "http://localhost:3000";
+    return;
+  }
 
-let loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-let professors = JSON.parse(localStorage.getItem("userList") || []);
+  // Elementos da tabela
+  let frontEndProfessor = document.querySelector(".frontEndProfessor");
+  let frontEndManage = document.querySelector(".frontEndManage");
 
-let frontEndProfessor = document.querySelector(".frontEndProfessor");
-let frontEndManage = document.querySelector(".frontEndManage");
+  let backEndProfessor = document.querySelector(".backEndProfessor");
+  let backEndManage = document.querySelector(".backEndManage");
 
-let backEndProfessor = document.querySelector(".backEndProfessor");
-let backEndManage = document.querySelector(".backEndManage");
+  let mobileProfessor = document.querySelector(".mobileProfessor");
+  let mobileManage = document.querySelector(".mobileManage");
 
-let mobileProfessor = document.querySelector(".mobileProfessor");
-let mobileManage = document.querySelector(".mobileManage");
+  let uiAndUxProfessor = document.querySelector(".uiAndUxProfessor");
+  let uiAndUxManage = document.querySelector(".uiAndUxManage");
 
-let uiAndUxProfessor = document.querySelector(".uiAndUxProfessor");
-let uiAndUxManage = document.querySelector(".uiAndUxManage");
+  let dataScienceProfessor = document.querySelector(".dataScienceProfessor");
+  let dataScienceManage = document.querySelector(".dataScienceManage");
 
-let dataScienceProfessor = document.querySelector(".dataScienceProfessor");
-let dataScienceManage = document.querySelector(".dataScienceManage");
+  let programmingBasisProfessor = document.querySelector(".programmingBasisProfessor");
+  let programmingBasisManage = document.querySelector(".programmingBasisManage");
 
-let programmingBasisProfessor = document.querySelector(".programmingBasisProfessor");
-let programmingBasisManage = document.querySelector(".programmingBasisManage");
+  let account = document.querySelector(".account");
+  if (account) {
+    let loggedName = loggedUser.userName;
+    const firstNameLoggedUser = loggedName.split(" ")[0];
+    account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
+  }
 
-let loggedName = loggedUser.userName;
-const firstNameLoggedUser = loggedName.split(" ")[0];
+  // Mapeamento dos cursos para os elementos DOM
+  const courseMapping = {
+    "Front-End": { professorField: frontEndProfessor, manageField: frontEndManage },
+    "Back-End": { professorField: backEndProfessor, manageField: backEndManage },
+    "Mobile": { professorField: mobileProfessor, manageField: mobileManage },
+    "UI_UX": { professorField: uiAndUxProfessor, manageField: uiAndUxManage },
+    "Data-Science": { professorField: dataScienceProfessor, manageField: dataScienceManage },
+    "Programming-Basis": { professorField: programmingBasisProfessor, manageField: programmingBasisManage }
+  };
 
-let account = document.querySelector(".account");
-account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
+  let gradeData = [];
+  let professores = [];
+
+  // Função para carregar dados da grade
+  async function loadGradeData() {
+    try {
+      const response = await fetch('http://localhost:8080/grade');
+      const data = await response.json();
+      
+      if (data.success) {
+        gradeData = data.grade;
+        updateTable();
+      } else {
+        console.error('Erro ao carregar grade:', data.message);
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  }
+
+  // Função para carregar lista de professores
+  async function loadProfessores() {
+    try {
+      const response = await fetch('http://localhost:8080/usuarios');
+      const data = await response.json();
+      
+      if (data.success) {
+        // Filtrar apenas usuários do tipo Professor e armazenar dados completos
+        const professoresCompletos = data.usuarios.filter(user => user.tipoUsuario === 'PROFESSOR');
+        professores = professoresCompletos.map(user => ({
+          nome: user.nomeCompleto.split(' ')[0].trim(),
+          emailEducacional: user.emailEducacional
+        }));
+        console.log('Usuários filtrados (professores):', professoresCompletos);
+      } else {
+        console.error('Erro ao carregar professores:', data.message);
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  }
+
+  // Função para criar opções do select
+  function createOptions(professores) {
+    return professores.map(professor => `<option value="${professor.nome}" data-email="${professor.emailEducacional}">${professor.nome}</option>`).join('');
+  }
+
+  // Função para atualizar a tabela
+  function updateTable() {
+    gradeData.forEach(grade => {
+      const courseInfo = courseMapping[grade.curso];
+      if (courseInfo) {
+        const { professorField, manageField } = courseInfo;
+        
+        // Atualizar nome do professor
+        professorField.textContent = grade.professor || '';
+        
+        // Atualizar campo de gerenciamento
+        if (grade.professor) {
+          manageField.innerHTML = `
+            <button class="removeProfessorButton" data-curso="${grade.curso}">Remove</button>
+          `;
+        } else {
+          manageField.innerHTML = `
+            <form>
+              <select class="courseSelect" name="course">
+                <option value="" disabled selected>select a professor</option>
+                ${createOptions(professores)}
+              </select>
+              <button type="button" class="buttonSubmitProfessor" data-curso="${grade.curso}">Add</button>
+            </form>
+          `;
+        }
+      }
+    });
+
+    // Adicionar event listeners
+    addEventListeners();
+  }
+
+  // Função para adicionar event listeners
+  function addEventListeners() {
+    // Event listeners para botões de adicionar professor
+    document.querySelectorAll('.buttonSubmitProfessor').forEach(button => {
+      button.addEventListener('click', async function() {
+        const curso = this.getAttribute('data-curso');
+        const select = this.parentElement.querySelector('.courseSelect');
+        const professorNome = select.value;
+        const professorEmail = select.options[select.selectedIndex].getAttribute('data-email');
+        
+        if (professorNome && professorEmail) {
+          await addProfessor(curso, professorNome, professorEmail);
+        }
+      });
+    });
+
+    // Event listeners para botões de remover professor
+    document.querySelectorAll('.removeProfessorButton').forEach(button => {
+      button.addEventListener('click', async function() {
+        const curso = this.getAttribute('data-curso');
+        await removeProfessor(curso);
+      });
+    });
+  }
+
+  // Função para adicionar professor
+  async function addProfessor(curso, professor, email) {
+    try {
+      const response = await fetch('http://localhost:8080/grade/atribuir', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ curso, professor, email })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        alert('Professor atribuído com sucesso!');
+        await loadGradeData(); // Recarregar dados
+      } else {
+        alert('Erro ao atribuir professor: ' + data.message);
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+      alert('Erro ao conectar com o servidor');
+    }
+  }
+
+  // Função para remover professor
+  async function removeProfessor(curso) {
+    try {
+      const response = await fetch(`http://localhost:8080/grade/remover/${curso}`, {
+        method: 'DELETE'
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        alert('Professor removido com sucesso!');
+        await loadGradeData(); // Recarregar dados
+      } else {
+        alert('Erro ao remover professor: ' + data.message);
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+      alert('Erro ao conectar com o servidor');
+    }
+  }
+
+  // Inicializar carregamento dos dados
+  async function initialize() {
+    await loadProfessores();
+    await loadGradeData();
+  }
+
+  initialize();
+});
 
 function logout() {
   localStorage.removeItem("token");
@@ -37,34 +219,3 @@ function logout() {
   localStorage.removeItem("cart");
   window.location.href = "http://localhost:3000";
 }
-
-function createOptions(professors) {
-  return professors.map(professor => `<option value="${professor}">${professor}</option>`).join('');
-}
-
-const courses = [
-  { professorField: frontEndProfessor, manageField: frontEndManage },
-  { professorField: backEndProfessor, manageField: backEndManage },
-  { professorField: mobileProfessor, manageField: mobileManage },
-  { professorField: uiAndUxProfessor, manageField: uiAndUxManage },
-  { professorField: dataScienceProfessor, manageField: dataScienceManage },
-  { professorField: programmingBasisProfessor, manageField: programmingBasisManage }
-];
-
-courses.forEach(({ professorField, manageField }) => {
-  if (professorField.innerHTML.trim() === "") {
-    manageField.innerHTML = `
-      <form>
-        <select class="courseSelect" name="course">
-          <option value="" disabled selected>select a professor</option>
-          ${createOptions(simulatedDatabase)}
-        </select>
-        <button type="button" class="buttonSubmitProfessor">Add</button>
-      </form>
-    `;
-  } else {
-    manageField.innerHTML = `
-      <button class="removeProfessorButton">Remove</button>
-    `;
-  }
-});
