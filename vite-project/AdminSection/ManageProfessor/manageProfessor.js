@@ -16,7 +16,7 @@ function logout() {
   window.location.href = "http://localhost:3000";
 }
 
-// Função para buscar todos os usuários do tipo PROFESSOR do backend
+
 async function fetchProfessors() {
     try {
         const response = await fetch('http://localhost:8080/usuarios', {
@@ -33,7 +33,6 @@ async function fetchProfessors() {
         const data = await response.json();
         
         if (data.success) {
-            // Filtrar apenas usuários do tipo PROFESSOR
             professors = data.usuarios.filter(user => user.tipoUsuario === "PROFESSOR");
             updateProfessor();
         } else {
@@ -48,7 +47,6 @@ let tbodyColor;
 let tbodyCount = 0;
 
 function updateProfessor(){
-    // Limpar o tbody antes de adicionar novos dados
     tbody.innerHTML = '';
     tbodyCount = 0;
 
@@ -79,7 +77,6 @@ function updateProfessor(){
             tbodyCount++;
         });
 
-        // Adicionar event listeners aos botões de delete
         addDeleteEventListeners();
     } else {
         thead.innerHTML = `
@@ -101,18 +98,37 @@ function addDeleteEventListeners() {
             const userEmailToDelete = tr.querySelector(".userEmail");
             const professorToDelete = userEmailToDelete.textContent.trim();              
 
-            // Remover da lista local
-            professors = professors.filter(professor => professor.email !== professorToDelete);
-            
-            // Atualizar a visualização
-            updateProfessor();
-            
-            // TODO: Implementar chamada para deletar no backend
-            // Por enquanto apenas remove da lista local
-            console.log(`Professor com email ${professorToDelete} removido da lista`);
+            try {
+                const response = await fetch(`http://localhost:8080/usuarios/${encodeURIComponent(professorToDelete)}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    professors = professors.filter(professor => professor.emailEducacional !== professorToDelete);
+                    
+                    updateProfessor();
+                    
+                    console.log('Professor deletado com sucesso:', data.message);
+                } else {
+                    console.error('Erro ao deletar professor:', data.message);
+                    alert('Erro ao deletar professor: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Erro na requisição de delete:', error);
+                alert('Erro ao deletar professor. Tente novamente.');
+            }
         });
     });
 }
 
-// Inicializar buscando os dados do backend
+
 fetchProfessors();

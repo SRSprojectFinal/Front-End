@@ -16,7 +16,11 @@ let validConfirmPassword = false;
 
 let msgError = document.getElementById("msgError");
 
+let isProcessing = false;
 
+let successModal = document.getElementById("successModal");
+let modalMessage = document.getElementById("modalMessage");
+let modalOkButton = document.getElementById("modalOkButton");
 
 function goToLogin() {
     window.location.href = "http://localhost:3000/Login/login.html";
@@ -24,9 +28,7 @@ function goToLogin() {
 
 function shakeElement() {
   const container = document.querySelector(".container");
-
   container.classList.add("shake");
-
   setTimeout(() => {
     container.classList.remove("shake");
   }, 300);
@@ -95,12 +97,16 @@ confirmPasswordInput.addEventListener("keyup", () => {
 });
 
 function register() {
+  if (isProcessing) {
+    return;
+  }
   if (
     validName &&
     validEmail &&
     validPassword &&
     validConfirmPassword
   ) {
+    isProcessing = true;
     let nameParts = nameInput.value.trim().split(" ");
     let firstName = nameParts[0];
     let lastName = nameParts[nameParts.length - 1];
@@ -126,8 +132,7 @@ function register() {
     .then(data => {
       if (data.success) {
         msgError.setAttribute("style", "display: none");
-        alert(`Email sent to ${emailInput.value} containing your new system access email! (Your new email is ${regUserEmail})`);
-        window.location.href = "http://localhost:3000/AdminSection/adminSection.html";
+        showSuccessModal("Educational account created successfully");
       } else {
         msgError.innerHTML = data.message || "Erro ao cadastrar professor!";
         msgError.setAttribute("style", "display: block");
@@ -135,10 +140,12 @@ function register() {
       }
     })
     .catch(error => {
-      console.error('Erro:', error);
       msgError.innerHTML = "Erro de conexão com o servidor!";
       msgError.setAttribute("style", "display: block");
       shakeElement();
+    })
+    .finally(() => {
+      isProcessing = false;
     });
   } else {
     msgError.innerHTML = "Fill in all fields with valid information!";
@@ -150,3 +157,21 @@ function register() {
 function goToManageProfessors() {
     window.location.href = "http://localhost:3000/AdminSection/ManageProfessor/manageProfessor.html"
 }
+
+function showSuccessModal(message) {
+  modalMessage.textContent = message;
+  successModal.style.display = "block";
+}
+
+function closeSuccessModal() {
+  successModal.style.display = "none";
+  window.location.href = "http://localhost:3000/AdminSection/adminSection.html";
+}
+
+modalOkButton.addEventListener("click", closeSuccessModal);
+
+window.addEventListener("click", function(event) {
+  if (event.target === successModal) {
+    closeSuccessModal();
+  }
+});

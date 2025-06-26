@@ -27,6 +27,10 @@
     color: #000000;
   }
 
+  #userName {
+    color: #000000;
+  }
+
   .nav-links {
     display: flex;
     gap: 90px;
@@ -286,9 +290,10 @@ input::placeholder {
   transition: 0.3s;
 }
 
-#buttonContinueToPayment:hover {
+#buttonContinueToPayment:not(:disabled):hover {
   color: #7B1CE0;
   background-color: transparent;
+  border: 1px solid #7B1CE0;
 }
 
 .buttonCoupon {
@@ -317,7 +322,7 @@ input::placeholder {
 .sectionEmptyCart img {
   margin-top: 70px;
   margin-bottom: 30px;
-  height: 350px;
+  height: 300px;
   width: 350px;
 }
 
@@ -356,4 +361,204 @@ input::placeholder {
 
 span {
   color: #7B1CE0;
+}
+
+.cartStyleInPaymentScreen {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  gap: 9px;
+  background-color: #cacaca;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.paymentStyleInPaymentScreen {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  gap: 9px;
+  background-color: #7e7e7e9f;
+  justify-content: center;
+    border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.divPayment2 {
+  height: 20px;
+  width: 20px;
+  background-color: rgba(0, 0, 0, 0.377);
+  color: #a1a1a1;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.classPayment2 {
+  margin-top: 0px;
+}
+.paymentStyleContent {
+  margin-top: 19px;
+  color: rgba(0, 0, 0, 0.37);
+}
+
+.paymentSection {
+    display: none;
+    justify-content: center;
+    margin-top: 65px;
+    gap: 20px;
+}
+
+.cardPayment {
+    width: 450px;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow:  0px 0px 11px #c4c4c4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.productsInCart {
+  width: 350px;
+  height: 160px;
+  max-height: 160px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.productsInCart::-webkit-scrollbar {
+  display: none;
+}
+
+.cardPaymentType p {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 17px;
+}
+
+.cardPaymentType {
+    width: 450px;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow:  0px 0px 11px #c4c4c4;
+}
+
+.cartSummaryContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+}
+
+.divSummaryContent {
+  display: flex;
+  gap: 90px;
+  margin-top: 28px;
+}
+
+.divSummaryPrice {
+  text-align: right;
+}
+
+.divSummaryInformations p {
+  margin-bottom: 15px;
+}
+
+.cartTotalValue {
+  margin-bottom: 15px;
+}
+
+.cartTotalPurchase {
+  margin-bottom: 15px;
+}
+
+.cartCalculate {
+  margin-bottom: 15px;
+}
+
+.labelDeliveryTime {
+  font-size: 18px;
+}
+
+.labelCoupon {
+  font-size: 18px;
+}
+
+.cartSummaryTitle {
+  font-size: 18px;
+}
+
+#buttonConfirmPayment {
+  width: 352px;
+  font-family: "Jura", sans-serif;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  background-color:#7B1CE0;
+  border: 1px solid #7B1CE0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+#buttonConfirmPayment:hover {
+  color: #7B1CE0;
+  background-color: transparent;
+}
+
+#buttonReturnToCart {
+  border: none;               
+  border-bottom: 1px solid #212121;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0px;
+  width: 125px;
+  font-family: "Jura", sans-serif;
+  margin-left: 115px;
+}
+
+.paymenyMethod {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paymenyMethod img {
+  height: 80px;
+  width: 130px;
+}
+
+.divCoursePayment {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-weight: bold;
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.divCourseNameAndPng {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.divCoursePayment img{
+  height: 50px;
 }

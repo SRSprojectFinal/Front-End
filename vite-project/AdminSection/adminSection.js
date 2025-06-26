@@ -1,5 +1,4 @@
 
-//codigo mudado para tentar resolver (funcionou)
 window.onload = () => {
   const loggedUserRaw = localStorage.getItem("loggedUser");
 
@@ -19,17 +18,9 @@ window.onload = () => {
     console.warn("Elemento .account não encontrado no DOM.");
   }
 
-  // Animação
   timerAnimations();
 
-  // Esperamos a página carregar totalmente antes de executar o código.
-  // Isso garante que o elemento .account já existe no DOM,
-  // evitando erro ao tentar acessá-lo antes da criação.
-  // Sem esse window.onload, o JS pode rodar antes do HTML ser carregado,
-  // fazendo com que document.querySelector('.account') retorne null.
 };
-
-//mudei só até aqui
 
 function logout() {
   localStorage.removeItem("token");

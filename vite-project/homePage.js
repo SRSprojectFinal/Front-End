@@ -34,6 +34,14 @@ let cardCourseProgrammingBasis = document.querySelector(".cardCourseProgrammingB
 
 let canAddToCart = true;
 
+let permissionModal = document.getElementById("permissionModal");
+let permissionMessage = document.getElementById("permissionMessage");
+let permissionOkButton = document.getElementById("permissionOkButton");
+
+let cartModal = document.getElementById("cartModal");
+let cartMessage = document.getElementById("cartMessage");
+let cartOkButton = document.getElementById("cartOkButton");
+
 const cardsInformation = [
   cardFrontEnd, cardBackEnd, cardUiAndUx,
   cardMobile, cardProgrammingBasis, cardDataScience
@@ -77,7 +85,7 @@ if (localStorage.getItem("token") == null) {
     canAddToCart = false;
   }
 
-  if(loggedEmail.includes("@admin.com") || loggedUser.type === "ADMIN") {
+  if(loggedEmail.includes("@admin.srs.edu") || loggedUser.type === "ADMIN") {
     navLinks.insertAdjacentHTML("beforeend", `<li class="adminSection"><a href="http://localhost:3000/AdminSection/adminSection.html">Admin Section</a></li>`);
     canAddToCart = false;
   }
@@ -92,7 +100,7 @@ function logout() {
 
 function addToCart(button) {
   if (!canAddToCart) {
-    alert("You do not have permission to add products to the cart!");
+    showPermissionModal("You do not have permission to add products to the cart!");
     return;
   }
 
@@ -115,7 +123,7 @@ function addToCart(button) {
   );
 
   if (verificationCart) {
-    alert("This product is already in the cart!");
+    showCartModal("This product is already in the cart!");
   } else {
     cart.push(ProductToCart);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -275,3 +283,38 @@ function goToViewReviews(){
 function goToAboutUs(){
   window.location.href = "http://localhost:3000/#footer";
 }
+
+
+function showPermissionModal(message) {
+  permissionMessage.textContent = message;
+  permissionModal.style.display = "block";
+}
+
+function showCartModal(message) {
+  cartMessage.textContent = message;
+  cartModal.style.display = "block";
+}
+
+
+function closePermissionModal() {
+  permissionModal.style.display = "none";
+}
+
+
+function closeCartModal() {
+  cartModal.style.display = "none";
+}
+
+
+permissionOkButton.addEventListener("click", closePermissionModal);
+cartOkButton.addEventListener("click", closeCartModal);
+
+
+window.addEventListener("click", function(event) {
+  if (event.target === permissionModal) {
+    closePermissionModal();
+  }
+  if (event.target === cartModal) {
+    closeCartModal();
+  }
+});

@@ -16,7 +16,9 @@ let validConfirmPassword = false;
 
 let msgError = document.getElementById("msgError");
 
-
+let successModal = document.getElementById("successModal");
+let modalMessage = document.getElementById("modalMessage");
+let modalOkButton = document.getElementById("modalOkButton");
 
 function goToLogin() {
     window.location.href = "http://localhost:3000/Login/login.html";
@@ -126,17 +128,15 @@ function register() {
     .then(data => {
       if (data.success) {
         msgError.setAttribute("style", "display: none");
-        alert(`Email sent to ${emailInput.value} containing your new system access email! (Your new email is ${regUserEmail})`);
-        window.location.href = "http://localhost:3000/Login/login.html";
+        showSuccessModal("Educational account created successfully.\n\nYour access credentials have been sent to your email.");
       } else {
-        msgError.innerHTML = data.message || "Erro ao cadastrar usuário!";
+        msgError.innerHTML = data.message || "Error registering user!";
         msgError.setAttribute("style", "display: block");
         shakeElement();
       }
     })
     .catch(error => {
-      console.error('Erro:', error);
-      msgError.innerHTML = "Erro de conexão com o servidor!";
+      msgError.innerHTML = "Server connection error!";
       msgError.setAttribute("style", "display: block");
       shakeElement();
     });
@@ -146,3 +146,21 @@ function register() {
     shakeElement();
   }
 }
+
+function showSuccessModal(message) {
+  modalMessage.textContent = message;
+  successModal.style.display = "block";
+}
+
+function closeSuccessModal() {
+  successModal.style.display = "none";
+  window.location.href = "http://localhost:3000/Login/login.html";
+}
+
+modalOkButton.addEventListener("click", closeSuccessModal);
+
+window.addEventListener("click", function(event) {
+  if (event.target === successModal) {
+    closeSuccessModal();
+  }
+});

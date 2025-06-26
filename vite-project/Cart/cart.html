@@ -29,8 +29,8 @@
             </ul>
             <div class="navbarButtons">
                 <p> | </p>
-                <p> hello Juan <i class="fa-solid fa-user"></i></p>
-                <button class="logoutButton">Logout</button>    
+                <p> hello <span id="userName"></span><i class="fa-solid fa-user"></i></p>
+                <button class="logoutButton" onclick="logout()">Logout</button>    
             </div>
         </nav>
         <header>           
@@ -159,6 +159,51 @@
         <h1>Your Cart is <span>Empty</span></h1>
         <p>Browse the store categories or search for your coueses.</p>
         <a href="http://localhost:3000">Shop <i class="fa-solid fa-cart-shopping"></i></a>
+        </section>
+        <section class="paymentSection">
+            <div class="cardPaymentType">
+                <p>How Would you like pay</p>
+                <div class="paymenyMethod">
+                    <img src="CartPictures/cartao-elo (1)-Photoroom.png" alt="">
+                    <img src="CartPictures/hipercard-Photoroom.png" alt="">
+                    <img src="CartPictures/360_F_704717584_66pmpeTKQMoEnlo06hpYKeUhPJ6SnhND-Photoroom.png" alt="">
+                    <img src="CartPictures/PayPal.png" alt="">
+                    <img src="CartPictures/size_960_16_9_logo-mastercard2-Photoroom.png" alt="">
+                    <img src="CartPictures/screenshot-61-2-Photoroom.png" alt="">
+                </div>
+            </div>
+
+            <div class="cardPayment">
+                <div class="productsInCart">
+                        <div class="divCoursePayment">
+                            <div class="divCourseNameAndPng">
+                                <img src="screenshot-61-2-Photoroom.png" alt="">
+                                <p class="courseNamePayment">Back-End</p>
+                            </div>
+                            <div class="divCoursePricePayment">
+                                <p class="coursePricePayment">$229.99</p> 
+                            </div>
+                        </div>
+                        
+                </div>
+                <div class="cartSummaryContent">
+                    <p class="cartSummaryTitle"><strong>Summary</strong></p>
+                    <div class="divSummaryContent">
+                        <div class="divSummaryInformations">
+                            <p>Value of Products</p>
+                            <p>Delivery</p>
+                            <p>Total Purchase</p>
+                        </div>
+                        <div class="divSummaryPrice">
+                            <p class="cartTotalValue">$0.00</p>
+                            <p class="cartCalculate">To Be Calculated</p>
+                            <p class="cartTotalPurchase">$0.00</p>
+                        </div>
+                    </div>
+                    <input type="button" onclick="confirmPayment()" id="buttonConfirmPayment" value="Confirm"/>
+                    <input type="button" onclick="returnToCart()" id="buttonReturnToCart" value="Cancel payment"/>
+                </div>
+            </div>
         </section>
     </main>
     </body>

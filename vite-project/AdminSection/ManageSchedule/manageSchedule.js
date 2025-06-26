@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Impede execução se não houver usuário logado
   if (!loggedUser) {
     alert("Usuário não logado. Redirecionando para login.");
     window.location.href = "http://localhost:3000";
     return;
   }
 
-  // Elementos da tabela
   let frontEndProfessor = document.querySelector(".frontEndProfessor");
   let frontEndManage = document.querySelector(".frontEndManage");
 
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     account.innerHTML = `Hello ${firstNameLoggedUser} <i class="fa-solid fa-user"></i>`;
   }
 
-  // Mapeamento dos cursos para os elementos DOM
   const courseMapping = {
     "Front-End": { professorField: frontEndProfessor, manageField: frontEndManage },
     "Back-End": { professorField: backEndProfessor, manageField: backEndManage },
@@ -56,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let gradeData = [];
   let professores = [];
 
-  // Função para carregar dados da grade
   async function loadGradeData() {
     try {
       const response = await fetch('http://localhost:8080/grade');
@@ -73,14 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Função para carregar lista de professores
   async function loadProfessores() {
     try {
       const response = await fetch('http://localhost:8080/usuarios');
       const data = await response.json();
       
       if (data.success) {
-        // Filtrar apenas usuários do tipo Professor e armazenar dados completos
         const professoresCompletos = data.usuarios.filter(user => user.tipoUsuario === 'PROFESSOR');
         professores = professoresCompletos.map(user => ({
           nome: user.nomeCompleto.split(' ')[0].trim(),
@@ -95,22 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Função para criar opções do select
   function createOptions(professores) {
     return professores.map(professor => `<option value="${professor.nome}" data-email="${professor.emailEducacional}">${professor.nome}</option>`).join('');
   }
 
-  // Função para atualizar a tabela
   function updateTable() {
     gradeData.forEach(grade => {
       const courseInfo = courseMapping[grade.curso];
       if (courseInfo) {
         const { professorField, manageField } = courseInfo;
         
-        // Atualizar nome do professor
         professorField.textContent = grade.professor || '';
         
-        // Atualizar campo de gerenciamento
         if (grade.professor) {
           manageField.innerHTML = `
             <button class="removeProfessorButton" data-curso="${grade.curso}">Remove</button>
@@ -129,13 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Adicionar event listeners
     addEventListeners();
   }
 
-  // Função para adicionar event listeners
   function addEventListeners() {
-    // Event listeners para botões de adicionar professor
     document.querySelectorAll('.buttonSubmitProfessor').forEach(button => {
       button.addEventListener('click', async function() {
         const curso = this.getAttribute('data-curso');
@@ -149,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Event listeners para botões de remover professor
+
     document.querySelectorAll('.removeProfessorButton').forEach(button => {
       button.addEventListener('click', async function() {
         const curso = this.getAttribute('data-curso');
@@ -158,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Função para adicionar professor
+
   async function addProfessor(curso, professor, email) {
     try {
       const response = await fetch('http://localhost:8080/grade/atribuir', {
@@ -173,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       if (data.success) {
         alert('Professor atribuído com sucesso!');
-        await loadGradeData(); // Recarregar dados
+        await loadGradeData();
       } else {
         alert('Erro ao atribuir professor: ' + data.message);
       }
@@ -183,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Função para remover professor
+
   async function removeProfessor(curso) {
     try {
       const response = await fetch(`http://localhost:8080/grade/remover/${curso}`, {
@@ -194,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       if (data.success) {
         alert('Professor removido com sucesso!');
-        await loadGradeData(); // Recarregar dados
+        await loadGradeData();
       } else {
         alert('Erro ao remover professor: ' + data.message);
       }
@@ -204,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Inicializar carregamento dos dados
+
   async function initialize() {
     await loadProfessores();
     await loadGradeData();

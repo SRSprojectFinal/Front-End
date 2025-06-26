@@ -22,7 +22,6 @@ function logout() {
   window.location.href = "http://localhost:3000";
 }
 
-// Função para buscar todos os usuários do tipo ALUNO do backend
 async function fetchStudents() {
     try {
         const response = await fetch('http://localhost:8080/usuarios', {
@@ -39,7 +38,6 @@ async function fetchStudents() {
         const data = await response.json();
         
         if (data.success) {
-            // Filtrar apenas usuários do tipo ALUNO
             students = data.usuarios.filter(user => user.tipoUsuario === "ALUNO");
             updateStudents();
         } else {
@@ -54,7 +52,6 @@ let tbodyColor;
 let tbodyCount = 0;
 
 function updateStudents(){
-    // Limpar o tbody antes de adicionar novos dados
     tbody.innerHTML = '';
     tbodyCount = 0;
 
@@ -85,7 +82,6 @@ function updateStudents(){
             tbodyCount++;
         });
 
-        // Adicionar event listeners aos botões de delete
         addDeleteEventListeners();
     } else {
         thead.innerHTML = `
@@ -122,10 +118,8 @@ function addDeleteEventListeners() {
                 const data = await response.json();
                 
                 if (data.success) {
-                    // Remover da lista local
                     students = students.filter(student => student.emailEducacional !== studentToDelete);
                     
-                    // Atualizar a visualização
                     updateStudents();
                     
                     console.log('Aluno deletado com sucesso:', data.message);
@@ -141,5 +135,5 @@ function addDeleteEventListeners() {
     });
 }
 
-// Inicializar buscando os dados do backend
+
 fetchStudents();

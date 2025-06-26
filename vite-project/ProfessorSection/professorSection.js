@@ -120,17 +120,72 @@ window.onload = () => {
       if (scrollPosition >= sectionPosition && !animationTriggered) {
         animationTriggered = true;
   
-        animateProgress(frontValue, frontProgressBar, frontCompletedText, 75);
-        animateProgress(backValue, backProgressBar, backCompletedText, 100);
-        animateProgress(mobileValue, mobileProgressBar, mobileCompletedText, 0);
-        animateProgress(dataScienceValue, dataScienceProgressBar, dataScienceCompletedText, 0);
-        animateProgress(uiandUxValue, uiandUxProgressBar, uiandUxCompletedText, 0);
-        animateProgress(programmingBasisValue, programmingBasisProgressBar, programmingBasisCompletedText, 0);
+        const porcentagens = window.porcentagensCursos || {};
+        
+        animateProgress(frontValue, frontProgressBar, frontCompletedText, porcentagens['Front-End'] || 0);
+        animateProgress(backValue, backProgressBar, backCompletedText, porcentagens['Back-End'] || 0);
+        animateProgress(mobileValue, mobileProgressBar, mobileCompletedText, porcentagens['Mobile'] || 0);
+        animateProgress(dataScienceValue, dataScienceProgressBar, dataScienceCompletedText, porcentagens['Data-Science'] || 0);
+        animateProgress(uiandUxValue, uiandUxProgressBar, uiandUxCompletedText, porcentagens['UI-UX'] || 0);
+        animateProgress(programmingBasisValue, programmingBasisProgressBar, programmingBasisCompletedText, porcentagens['Programming-Basis'] || 0);
       }
     });
   
-    // Função para buscar os cursos do professor logado
+    function calcularPorcentagemNotas(curso) {
+      const endpoints = {
+        'Front-End': 'http://localhost:8080/cursos/frontend/alunos',
+        'Back-End': 'http://localhost:8080/cursos/backend/alunos',
+        'Mobile': 'http://localhost:8080/cursos/mobile/alunos',
+        'Data-Science': 'http://localhost:8080/cursos/datascience/alunos',
+        'UI-UX-Design': 'http://localhost:8080/cursos/uiux/alunos',
+        'Programming-Basis': 'http://localhost:8080/cursos/programming/alunos'
+      };
+
+      const endpoint = endpoints[curso];
+      if (!endpoint) return Promise.resolve(0);
+
+      return fetch(endpoint)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then(alunos => {
+          if (!alunos || alunos.length === 0) return 0;
+
+          let notasPreenchidas = 0;
+          let totalNotas = 0;
+
+          alunos.forEach(aluno => {
+            const camposNota = ['tp1', 'tp2', 'tp3', 'assesment'];
+            
+            camposNota.forEach(campo => {
+              if (aluno[campo] !== undefined && aluno[campo] !== null && aluno[campo] !== '') {
+                notasPreenchidas++;
+              }
+              totalNotas++;
+            });
+          });
+
+          const porcentagem = totalNotas > 0 ? Math.round((notasPreenchidas / totalNotas) * 100) : 0;
+          return Math.min(porcentagem, 100);
+        })
+        .catch(error => {
+          return 0;
+        });
+    }
+
     function buscarCursosDoProfessor() {
+      const mapeamentoCursos = {
+        'Front-End': { card: cardFrontEnd, name: 'Front End' },
+        'Back-End': { card: cardBackEnd, name: 'Back End' },
+        'Mobile': { card: cardMobile, name: 'Mobile' },
+        'Data-Science': { card: cardDataScience, name: 'Data Science' },
+        'UI_UX': { card: cardUIandUX, name: 'UI & UX' },
+        'Programming-Basis': { card: cardProgrammingBasis, name: 'Programming Basis' }
+      };
+
       fetch('http://localhost:8080/grade')
         .then(res => res.json())
         .then(data => {
@@ -140,25 +195,12 @@ window.onload = () => {
               item.emailEducacional === loggedUser.email
             );
             
-            // Mapeamento dos nomes dos cursos para os cards
-            const mapeamentoCursos = {
-              'Front-End': { card: cardFrontEnd, name: 'Front End' },
-              'Back-End': { card: cardBackEnd, name: 'Back End' },
-              'Mobile': { card: cardMobile, name: 'Mobile' },
-              'Data-Science': { card: cardDataScience, name: 'Data Science' },
-              'UI_UX': { card: cardUIandUX, name: 'UI & UX' },
-              'Programming-Basis': { card: cardProgrammingBasis, name: 'Programming Basis' }
-            };
-            
-            // Esconder todos os cards primeiro
             Object.values(mapeamentoCursos).forEach(({ card }) => {
               card.style.display = "none";
             });
             
-            // Limpar o conteúdo do cardMinistering
             upperCardMinistering.innerHTML = '<h3>Ministering</h3>';
             
-            // Mostrar apenas os cards dos cursos que o professor ministra
             cursosDoProfessor.forEach(item => {
               const cursoInfo = mapeamentoCursos[item.curso];
               if (cursoInfo) {
@@ -167,88 +209,68 @@ window.onload = () => {
               }
             });
             
-            // Atualizar as quantidades apenas para os cursos visíveis
             atualizarAmounts();
+            
+            Promise.all(
+              cursosDoProfessor.map(item => 
+                calcularPorcentagemNotas(item.curso).then(porcentagem => ({
+                  curso: item.curso,
+                  porcentagem: porcentagem
+                }))
+              )
+            ).then(resultados => {
+              window.porcentagensCursos = {};
+              resultados.forEach(resultado => {
+                window.porcentagensCursos[resultado.curso] = resultado.porcentagem;
+              });
+            }).catch(error => {
+              console.error('Erro ao calcular porcentagens:', error);
+              window.porcentagensCursos = {};
+            });
           }
         })
         .catch(error => {
           console.error('Erro ao buscar cursos do professor:', error);
-          // Em caso de erro, mostrar todos os cards (comportamento padrão)
           Object.values(mapeamentoCursos).forEach(({ card }) => {
             card.style.display = "block";
           });
         });
     }
   
-    // Chama a função para buscar os cursos do professor
     buscarCursosDoProfessor();
   
-    // Função para buscar e atualizar a quantidade de alunos de cada curso 
     function atualizarAmounts() {
-      // Front-End
       fetch('http://localhost:8080/cursos/frontend/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountFrontEnd').textContent = data.quantidade)
         .catch(() => document.getElementById('amountFrontEnd').textContent = '-');
 
-      // Back-End
       fetch('http://localhost:8080/cursos/backend/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountBackEnd').textContent = data.quantidade)
         .catch(() => document.getElementById('amountBackEnd').textContent = '-');
 
-      // Mobile
       fetch('http://localhost:8080/cursos/mobile/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountMobile').textContent = data.quantidade)
         .catch(() => document.getElementById('amountMobile').textContent = '-');
 
-      // Data Science
       fetch('http://localhost:8080/cursos/datascience/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountDataScience').textContent = data.quantidade)
         .catch(() => document.getElementById('amountDataScience').textContent = '-');
 
-      // UI & UX
       fetch('http://localhost:8080/cursos/uiux/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountUiUx').textContent = data.quantidade)
         .catch(() => document.getElementById('amountUiUx').textContent = '-');
 
-      // Programming Basis
       fetch('http://localhost:8080/cursos/programming/contar')
         .then(res => res.json())
         .then(data => document.getElementById('amountProgrammingBasis').textContent = data.quantidade)
         .catch(() => document.getElementById('amountProgrammingBasis').textContent = '-');
     }
-
-    /*
-      Explicação sobre data.quantidade:
-      ---------------------------------
-      O backend (Spring Boot) retorna um JSON assim para cada endpoint de contagem:
-        { "quantidade": valor }
-      Por exemplo, para Data Science:
-        { "quantidade": 12 }
-
-      Exemplo de como está o endpoint no backend (Java):
-
-        @GetMapping("/datascience/contar")
-        public Map<String, Integer> contarData() {
-            Map<String, Integer> response = new HashMap<>();
-            response.put("quantidade", dataDAO.contar());
-            return response;
-        }
-
-      No JavaScript, ao fazer fetch e usar .then(res => res.json()),
-      o objeto retornado é esse JSON, então data.quantidade acessa o valor do campo "quantidade",
-      que representa o número de alunos daquele curso.
-    */
   };
-
-  // não mudei nada nessas funções, apenas movi elas para fora do window.onload e voltou a funcionar
-  //explicação da IA: 
-  // As funções precisam estar no escopo global (fora do window.onload) para que o onclick do HTML consiga acessá-las e os botões funcionem corretamente.
-  // Isso é necessário porque o onclick do HTML só procura funções no escopo global (window). Funções declaradas dentro do window.onload não ficam acessíveis globalmente.
 
   function logout() {
     localStorage.removeItem("token");

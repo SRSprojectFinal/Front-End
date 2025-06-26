@@ -18,120 +18,115 @@ let dataScienceBigPicture = "StudentHistoryPictures/pexels-divinetechygirl-11813
 let uiAndUxBigPicture = "StudentHistoryPictures/pexels-tranmautritam-326518.jpg"
 let programmingBasisBigPicture = "StudentHistoryPictures/pexels-thisisengineering-3861969.jpg"
 
+function fetchStudentHistory() {
+    fetch(`http://localhost:8080/historico/buscar/${loggedUser.email}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar histórico');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (Array.isArray(data)) {
+            displayStudentHistory(data);
+        } else if (data.status === "nao_encontrado") {
+            main.innerHTML = '<p class="no-history">Nenhum histórico encontrado.</p>';
+        } else {
+            throw new Error(data.mensagem || 'Erro desconhecido');
+        }
+    })
+    .catch(error => {
+        main.innerHTML = '<p class="error">Erro ao carregar histórico: ' + error.message + '</p>';
+    });
+}
 
-// data base history simulation //
+function displayStudentHistory(studentHistory) {
+    studentHistory.forEach(student => {
 
-let dbHistorySimulation = [
-  {
-    "email": "juan.santos@student.srs.edu",
-    "course": "dataScience",
-    "situation": "Approved"
-  },
-  {
-    "email": "juan.santos@student.srs.edu",
-    "course": "backEnd",
-    "situation": "failed"
-  },
-  {
-    "email": "bruno.ribeiro@student.srs.edu",
-    "course": "frontEnd",
-    "situation": "failed"
-  },
-  {
-    "email": "bruno.ribeiro@student.srs.edu",
-    "course": "mobile",
-    "situation": "Approved"
-  }
-]
+        if(student.curso == "Front-End"){
+            pictureURL = frontEndPicture
+            bigPictureURL = frontEndBigPicture
+        } else if (student.curso == "Back-End"){
+            pictureURL = backEndPicture
+            bigPictureURL = backEndBigPicture
+        } else if (student.curso == "Data-Science"){
+            pictureURL = dataSciencePicture
+            bigPictureURL = dataScienceBigPicture
+        } else if (student.curso == "Mobile"){
+            pictureURL = mobilePicture
+            bigPictureURL = mobileBigPicture
+        } else if (student.curso == "Programming-Basis"){
+            pictureURL = programmingBasisPictute
+            bigPictureURL = programmingBasisBigPicture
+        } else if (student.curso == "UI-UX"){
+            pictureURL = uiAndUxPictures
+            bigPictureURL = uiAndUxBigPicture
+        }
 
-// ============================= //
-
-// Simulated dataBase interation //
-
-let studentFind = dbHistorySimulation.filter(student => student.email === loggedUser.email);
-
-studentFind.forEach(student => {
-
-    if(student.course == "frontEnd"){
-        pictureURL = frontEndPicture
-        bigPictureURL = frontEndBigPicture
-    } else if (student.course == "backEnd"){
-        pictureURL = backEndPicture
-        bigPictureURL = backEndBigPicture
-    } else if (student.course == "dataScience"){
-        pictureURL = dataSciencePicture
-        bigPictureURL = dataScienceBigPicture
-    } else if (student.course == "mobile"){
-        pictureURL = mobilePicture
-        bigPictureURL = mobileBigPicture
-    } else if (student.course == "programmingBasis"){
-        pictureURL = programmingBasisPictute
-        bigPictureURL = programmingBasisBigPicture
-    } else if (student.course == "uiAndUx"){
-        pictureURL = uiAndUxPictures
-        bigPictureURL = uiAndUxBigPicture
-    }
-
-    if(student.situation == "Approved"){
-        main.innerHTML += `
-            <div class="card">
-                <div class="cardInformations">
-                    <img src=${pictureURL} alt="Course picture">
-                    <h2 class="courseName">${student.course}</h2>
-                    <h3>Schedule</h3>
-                    <p><strong>Days of week:</strong> Tuesday / Thursday</p>
-                    <p><strong>Shift:</strong> Morning</p>
-                    <p><strong>Time:</strong> 8hrs - 11hrs</p>
-                    <h3>Final Situation</h3>
-                    <p class="finalSituation approvedSituation"><strong>Situation:</strong> ${student.situation}</p>
+        if(student.situacao == "Approved"){
+            main.innerHTML += `
+                <div class="card">
+                    <div class="cardInformations">
+                        <img src=${pictureURL} alt="Course picture">
+                        <h2 class="courseName">${student.curso}</h2>
+                        <h3>Schedule</h3>
+                        <p><strong>Days of week:</strong> Tuesday / Thursday</p>
+                        <p><strong>Shift:</strong> Morning</p>
+                        <p><strong>Time:</strong> 8hrs - 11hrs</p>
+                        <h3>Final Situation</h3>
+                        <p class="finalSituation approvedSituation"><strong>Situation:</strong> ${student.situacao}</p>
+                    </div>
+                    <div class="cardImg">
+                        <img src=${bigPictureURL} alt="Course Icon">
+                    </div>
+                    <div class="cardProgress">
+                        <h2>Progress</h2>
+                        <h3>Course Time</h3>
+                        <p><strong>Duration:</strong> 1 year</p>
+                        <div class="progressBar progressBarApproved">
+                            <div class="value approvedSituation">100%</div>
+                            <div class="completedText approvedSituation">Completed</div>
+                        </div>        
+                    </div>
                 </div>
-                <div class="cardImg">
-                    <img src=${bigPictureURL} alt="Course Icon">
+            `;
+        } else {
+            main.innerHTML += `
+                <div class="card">
+                    <div class="cardInformations">
+                        <img src=${pictureURL} alt="Course picture">
+                        <h2 class="courseName">${student.curso}</h2>
+                        <h3>Schedule</h3>
+                        <p><strong>Days of week:</strong> Tuesday / Thursday</p>
+                        <p><strong>Shift:</strong> Morning</p>
+                        <p><strong>Time:</strong> 8hrs - 11hrs</p>
+                        <h3>Final Situation</h3>
+                        <p class="finalSituation failedSituation"><strong>Situation:</strong> ${student.situacao}</p>
+                    </div>
+                    <div class="cardImg">
+                        <img src=${bigPictureURL} alt="Course Icon">
+                    </div>
+                    <div class="cardProgress">
+                        <h2>Progress</h2>
+                        <h3>Course Time</h3>
+                        <p><strong>Duration:</strong> 1 year</p>
+                        <div class="progressBar progressBarFailed">
+                            <div class="value failedSituation">100%</div>
+                            <div class="completedText failedSituation">Completed</div>
+                        </div>        
+                    </div>
                 </div>
-                <div class="cardProgress">
-                    <h2>Progress</h2>
-                    <h3>Course Time</h3>
-                    <p><strong>Duration:</strong> 1 year</p>
-                    <div class="progressBar progressBarApproved">
-                        <div class="value approvedSituation">100%</div>
-                        <div class="completedText approvedSituation">Completed</div>
-                    </div>        
-                </div>
-            </div>
-        `;
-    } else {
-        main.innerHTML += `
-            <div class="card">
-                <div class="cardInformations">
-                    <img src=${pictureURL} alt="Course picture">
-                    <h2 class="courseName">${student.course}</h2>
-                    <h3>Schedule</h3>
-                    <p><strong>Days of week:</strong> Tuesday / Thursday</p>
-                    <p><strong>Shift:</strong> Morning</p>
-                    <p><strong>Time:</strong> 8hrs - 11hrs</p>
-                    <h3>Final Situation</h3>
-                    <p class="finalSituation failedSituation"><strong>Situation:</strong> ${student.situation}</p>
-                </div>
-                <div class="cardImg">
-                    <img src=${bigPictureURL} alt="Course Icon">
-                </div>
-                <div class="cardProgress">
-                    <h2>Progress</h2>
-                    <h3>Course Time</h3>
-                    <p><strong>Duration:</strong> 1 year</p>
-                    <div class="progressBar progressBarFailed">
-                        <div class="value failedSituation">100%</div>
-                        <div class="completedText failedSituation">Completed</div>
-                    </div>        
-                </div>
-            </div>
-        `;
-    }
-});
+            `;
+        }
+    });
+}
 
-
-
-// ============================= //
+fetchStudentHistory();
 
 let loggedName = loggedUser.userName;
 const firstNameLoggedUser = loggedName.split(" ")[0];
